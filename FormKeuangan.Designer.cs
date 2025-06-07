@@ -57,6 +57,7 @@
             this.btnRefresh.TabIndex = 31;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnUpdate
             // 
@@ -66,6 +67,7 @@
             this.btnUpdate.TabIndex = 30;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnHapus
             // 
@@ -75,6 +77,7 @@
             this.btnHapus.TabIndex = 29;
             this.btnHapus.Text = "Hapus";
             this.btnHapus.UseVisualStyleBackColor = true;
+            this.btnHapus.Click += new System.EventHandler(this.btnHapus_Click);
             // 
             // btnTambah
             // 
@@ -84,6 +87,7 @@
             this.btnTambah.TabIndex = 28;
             this.btnTambah.Text = "Tambah";
             this.btnTambah.UseVisualStyleBackColor = true;
+            this.btnTambah.Click += new System.EventHandler(this.btnTambah_Click);
             // 
             // label6
             // 
@@ -105,6 +109,7 @@
             this.dgvKeuangan.RowTemplate.Height = 24;
             this.dgvKeuangan.Size = new System.Drawing.Size(436, 341);
             this.dgvKeuangan.TabIndex = 26;
+            this.dgvKeuangan.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKeuangan_CellContentClick);
             // 
             // txtJumlah
             // 
@@ -188,6 +193,7 @@
             this.btnBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnBack.TabIndex = 33;
             this.btnBack.TabStop = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // FormKeuangan
             // 
@@ -213,6 +219,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FormKeuangan";
             this.Text = "Data Keuangan";
+            this.Load += new System.EventHandler(this.FormKeuangan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKeuangan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).EndInit();
             this.ResumeLayout(false);

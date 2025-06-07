@@ -42,6 +42,8 @@
             this.btnTambah = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.PictureBox();
+            this.txtNIM = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrestasi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
             this.SuspendLayout();
@@ -49,7 +51,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 69);
+            this.label1.Location = new System.Drawing.Point(25, 124);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 16);
             this.label1.TabIndex = 0;
@@ -58,7 +60,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 142);
+            this.label2.Location = new System.Drawing.Point(25, 170);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 16);
             this.label2.TabIndex = 1;
@@ -75,24 +77,24 @@
             // 
             // txtPrestasi
             // 
-            this.txtPrestasi.Location = new System.Drawing.Point(28, 88);
+            this.txtPrestasi.Location = new System.Drawing.Point(28, 143);
             this.txtPrestasi.Name = "txtPrestasi";
             this.txtPrestasi.Size = new System.Drawing.Size(170, 22);
-            this.txtPrestasi.TabIndex = 3;
+            this.txtPrestasi.TabIndex = 4;
             // 
             // txtTingkat
             // 
-            this.txtTingkat.Location = new System.Drawing.Point(28, 161);
+            this.txtTingkat.Location = new System.Drawing.Point(28, 189);
             this.txtTingkat.Name = "txtTingkat";
             this.txtTingkat.Size = new System.Drawing.Size(170, 22);
-            this.txtTingkat.TabIndex = 4;
+            this.txtTingkat.TabIndex = 5;
             // 
             // txtTahun
             // 
             this.txtTahun.Location = new System.Drawing.Point(28, 235);
             this.txtTahun.Name = "txtTahun";
             this.txtTahun.Size = new System.Drawing.Size(170, 22);
-            this.txtTahun.TabIndex = 5;
+            this.txtTahun.TabIndex = 6;
             // 
             // dgvPrestasi
             // 
@@ -103,7 +105,7 @@
             this.dgvPrestasi.RowHeadersWidth = 51;
             this.dgvPrestasi.RowTemplate.Height = 24;
             this.dgvPrestasi.Size = new System.Drawing.Size(527, 359);
-            this.dgvPrestasi.TabIndex = 6;
+            this.dgvPrestasi.TabIndex = 7;
             this.dgvPrestasi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPrestasi_CellContentClick);
             // 
             // btnRefresh
@@ -111,7 +113,7 @@
             this.btnRefresh.Location = new System.Drawing.Point(123, 358);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(75, 23);
-            this.btnRefresh.TabIndex = 19;
+            this.btnRefresh.TabIndex = 9;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
@@ -121,7 +123,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(28, 358);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdate.TabIndex = 18;
+            this.btnUpdate.TabIndex = 8;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -131,7 +133,7 @@
             this.btnHapus.Location = new System.Drawing.Point(123, 310);
             this.btnHapus.Name = "btnHapus";
             this.btnHapus.Size = new System.Drawing.Size(75, 23);
-            this.btnHapus.TabIndex = 17;
+            this.btnHapus.TabIndex = 20;
             this.btnHapus.Text = "Hapus";
             this.btnHapus.UseVisualStyleBackColor = true;
             this.btnHapus.Click += new System.EventHandler(this.btnHapus_Click);
@@ -141,7 +143,7 @@
             this.btnTambah.Location = new System.Drawing.Point(28, 310);
             this.btnTambah.Name = "btnTambah";
             this.btnTambah.Size = new System.Drawing.Size(75, 23);
-            this.btnTambah.TabIndex = 16;
+            this.btnTambah.TabIndex = 21;
             this.btnTambah.Text = "Tambah";
             this.btnTambah.UseVisualStyleBackColor = true;
             this.btnTambah.Click += new System.EventHandler(this.btnTambah_Click);
@@ -153,7 +155,7 @@
             this.label6.Location = new System.Drawing.Point(122, 20);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(626, 32);
-            this.label6.TabIndex = 20;
+            this.label6.TabIndex = 23;
             this.label6.Text = "DATA PRESTASI ATLET FAKULTAS TEKNIK";
             // 
             // btnBack
@@ -163,9 +165,25 @@
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(48, 40);
             this.btnBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnBack.TabIndex = 21;
+            this.btnBack.TabIndex = 22;
             this.btnBack.TabStop = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // txtNIM
+            // 
+            this.txtNIM.Location = new System.Drawing.Point(28, 97);
+            this.txtNIM.Name = "txtNIM";
+            this.txtNIM.Size = new System.Drawing.Size(170, 22);
+            this.txtNIM.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(25, 78);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(102, 16);
+            this.label4.TabIndex = 24;
+            this.label4.Text = "NIM Mahasiswa";
             // 
             // FormPrestasi
             // 
@@ -173,6 +191,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Crimson;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtNIM);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnRefresh);
@@ -211,5 +231,7 @@
         private System.Windows.Forms.Button btnTambah;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox btnBack;
+        private System.Windows.Forms.TextBox txtNIM;
+        private System.Windows.Forms.Label label4;
     }
 }

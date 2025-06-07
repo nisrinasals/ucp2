@@ -38,14 +38,22 @@ namespace ucp2
             else
             {
                 dt = new DataTable();
-                using (var conn = new SqlConnection(connectionString))
+                try
                 {
-                    conn.Open();
-                    var query = "SELECT nim AS [NIM], nama, prodi, angkatan, cabor FROM dbo.Atlet";
-                    var da = new SqlDataAdapter(query, conn);
-                    da.Fill(dt);
+                    using (var conn = new SqlConnection(connectionString))
+                    {
+                        conn.Open();
+                        var query = "SELECT nim AS [NIM], nama, prodi, angkatan, cabor FROM dbo.Atlet";
+                        var da = new SqlDataAdapter(query, conn);
+                        da.Fill(dt);
+                    }
+                    _cache.Add(CacheKey, dt, _policy);
                 }
-                _cache.Add(CacheKey, dt, _policy);
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error memuat data prestasi atlet: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    dt = new DataTable();
+                }
             }
             dgvAtlet.AutoGenerateColumns = true;
             dgvAtlet.DataSource = dt;
@@ -93,7 +101,11 @@ namespace ucp2
 
         private void btnTambah_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtNim.Text) || string.IsNullOrWhiteSpace(txtNama.Text))
+            if (string.IsNullOrWhiteSpace(txtNim.Text) ||
+                string.IsNullOrWhiteSpace(txtNama.Text) ||
+                string.IsNullOrWhiteSpace(txtProdi.Text) ||
+                string.IsNullOrWhiteSpace(txtAngkatan.Text) ||
+                string.IsNullOrWhiteSpace(txtCabor.Text))
             {
                 MessageBox.Show("Harap isi semua data!", "Peringatan");
                 return;

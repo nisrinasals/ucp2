@@ -11,6 +11,8 @@ namespace ucp2
     {
         private readonly string connectionString = "Server=SAS\\SQLEXPRESS;Database=keuangan2;Integrated Security=True";
 
+        private int _selectedRelasiId = -1;
+        private int _selectedPrestasiDefinitionId = -1;
         private readonly MemoryCache _cache = MemoryCache.Default;
         private readonly CacheItemPolicy _policy = new CacheItemPolicy
         {
@@ -38,17 +40,47 @@ namespace ucp2
             else
             {
                 dt = new DataTable();
-                using (var conn = new SqlConnection(connectionString))
+                try
                 {
-                    conn.Open();
-                    var query = "SELECT nama_prestasi AS [Nama Prestasi], tingkat_prestasi, tahun_prestasi, id_prestasi FROM dbo.Prestasi";
-                    var da = new SqlDataAdapter(query, conn);
-                    da.Fill(dt);
+                    using (var conn = new SqlConnection(connectionString))
+                    {
+                        conn.Open();
+                        var query = @"
+                        SELECT
+                            PA.id_prestasi AS [ID Relasi],
+                            A.nim AS [NIM Atlet],
+                            A.nama AS [Nama Atlet],
+                            P.id_prestasi AS [ID Prestasi],
+                            P.nama_prestasi AS [Nama Prestasi],
+                            P.tingkat_prestasi AS [Tingkat],
+                            P.tahun_prestasi AS [Tahun]
+                        FROM 
+                            Prestasi_Atlet PA
+                        INNER JOIN 
+                            Atlet A ON PA.nim = A.nim
+                        INNER JOIN 
+                            Prestasi P ON PA.id_prestasi = P.id_prestasi
+                        ORDER BY 
+                            A.nama, P.tahun_prestasi DESC, P.nama_prestasi ASC;";
+                        var da = new SqlDataAdapter(query, conn);
+                        da.Fill(dt);
+                    }
+                    _cache.Add(CacheKey, dt, _policy);
                 }
-                _cache.Add(CacheKey, dt, _policy);
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error memuat data prestasi atlet: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    dt = new DataTable();
+                }
+
             }
             dgvPrestasi.AutoGenerateColumns = true;
             dgvPrestasi.DataSource = dt;
+
+            if (dgvPrestasi.Columns.Contains("ID Relasi"))
+                dgvPrestasi.Columns["ID Relasi"].Visible = false;
+            if (dgvPrestasi.Columns.Contains("ID Prestasi"))
+                dgvPrestasi.Columns["ID Prestasi"].Visible = false;
         }
 
         private void EnsureIndexes()
@@ -80,17 +112,23 @@ namespace ucp2
         }
         private void ClearForm()
         {
+            txtNIM.Clear();
             txtPrestasi.Clear();
             txtTingkat.Clear();
             txtTahun.Clear();
+            _selectedRelasiId = -1; 
+            _selectedPrestasiDefinitionId = -1;
 
             //Fokus kembali ke NIM user siap memasukkan data baru
-            txtPrestasi.Focus();
+            txtNIM.Focus();
         }
 
         private void btnTambah_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtPrestasi.Text))
+            if (string.IsNullOrWhiteSpace(txtNIM.Text) ||
+               string.IsNullOrWhiteSpace(txtPrestasi.Text) ||
+               string.IsNullOrWhiteSpace(txtTingkat.Text) ||
+                string.IsNullOrWhiteSpace(txtTahun.Text))
             {
                 MessageBox.Show("Harap isi semua data!", "Peringatan");
                 return;
@@ -103,6 +141,7 @@ namespace ucp2
                     using (var cmd = new SqlCommand("AddPrestasi", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@nim", txtNIM.Text.Trim());
                         cmd.Parameters.AddWithValue("@nama_prestasi", txtPrestasi.Text.Trim());
                         cmd.Parameters.AddWithValue("@tingkat_prestasi", txtTingkat.Text.Trim());
                         cmd.Parameters.AddWithValue("@tahun_prestasi", txtTahun.Text.Trim());
@@ -122,22 +161,24 @@ namespace ucp2
 
         private void btnHapus_Click(object sender, EventArgs e)
         {
-            if (dgvPrestasi.SelectedRows.Count == 0) return;
+            if (_selectedRelasiId == -1)
+            {
+                MessageBox.Show("Silakan pilih baris relasi yang ingin dihapus dari tabel.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             if (MessageBox.Show("Yakin ingin menghapus data ini?", "Konfirmasi", MessageBoxButtons.YesNo) != DialogResult.Yes)
                 return;
             try
             {
-                var idPrestasiToDelete = Convert.ToInt32(dgvPrestasi.SelectedRows[0].Cells["id_prestasi"].Value);
                 using (var conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
                     using (var cmd = new SqlCommand("DeletePrestasi", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@id_prestasi", idPrestasiToDelete);
+                        cmd.Parameters.AddWithValue("@id_prestasi", _selectedRelasiId);
                         cmd.ExecuteNonQuery();
                     }
-
                 }
                 _cache.Remove(CacheKey);
                 MessageBox.Show("Data berhasil dihapus!", "Sukses");
@@ -152,21 +193,22 @@ namespace ucp2
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (dgvPrestasi.SelectedRows.Count == 0)
+            if (_selectedPrestasiDefinitionId == -1)
             {
-                MessageBox.Show("Pilih data yang akan diubah!", "Peringatan");
+                MessageBox.Show("Silakan pilih baris yang ingin diupdate.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            if (MessageBox.Show("Yakin ingin mengupdate data ini?", "Konfirmasi", MessageBoxButtons.YesNo) != DialogResult.Yes)
+                return;
             try
             {
-                int idPrestasiToUpdate = Convert.ToInt32(dgvPrestasi.SelectedRows[0].Cells["id_prestasi"].Value);
                 using (var conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
                     using (var cmd = new SqlCommand("UpdatePrestasi", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@id_prestasi", idPrestasiToUpdate);
+                        cmd.Parameters.AddWithValue("@id_prestasi", _selectedPrestasiDefinitionId);
                         cmd.Parameters.AddWithValue("@nama_prestasi", txtPrestasi.Text);
                         cmd.Parameters.AddWithValue("@tingkat_prestasi", txtTingkat.Text);
                         cmd.Parameters.AddWithValue("@tahun_prestasi", txtTahun.Text);
@@ -196,9 +238,12 @@ namespace ucp2
             try
             {
                 var row = dgvPrestasi.Rows[e.RowIndex];
+                _selectedRelasiId = Convert.ToInt32(row.Cells["ID Relasi"].Value);
+                _selectedPrestasiDefinitionId = Convert.ToInt32(row.Cells["ID Prestasi"].Value);
+                txtNIM.Text = row.Cells["NIM Atlet"].Value?.ToString() ?? string.Empty;
                 txtPrestasi.Text = row.Cells["Nama Prestasi"].Value?.ToString() ?? string.Empty;
-                txtTingkat.Text = row.Cells["tingkat_prestasi"].Value?.ToString() ?? string.Empty;
-                txtTahun.Text = row.Cells["tahun_prestasi"].Value?.ToString() ?? string.Empty;
+                txtTingkat.Text = row.Cells["Tingkat"].Value?.ToString() ?? string.Empty;
+                txtTahun.Text = row.Cells["Tahun"].Value?.ToString() ?? string.Empty;
             }
             catch (Exception ex)
             {
