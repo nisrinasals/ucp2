@@ -30,8 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormKeuangan));
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnHapus = new System.Windows.Forms.Button();
             this.btnTambah = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.dgvKeuangan = new System.Windows.Forms.DataGridView();
@@ -43,7 +41,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblMessage = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKeuangan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
@@ -51,7 +48,7 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(195, 376);
+            this.btnRefresh.Location = new System.Drawing.Point(190, 348);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(75, 23);
             this.btnRefresh.TabIndex = 31;
@@ -59,29 +56,9 @@
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Location = new System.Drawing.Point(59, 376);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdate.TabIndex = 30;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
-            // btnHapus
-            // 
-            this.btnHapus.Location = new System.Drawing.Point(195, 348);
-            this.btnHapus.Name = "btnHapus";
-            this.btnHapus.Size = new System.Drawing.Size(75, 23);
-            this.btnHapus.TabIndex = 29;
-            this.btnHapus.Text = "Hapus";
-            this.btnHapus.UseVisualStyleBackColor = true;
-            this.btnHapus.Click += new System.EventHandler(this.btnHapus_Click);
-            // 
             // btnTambah
             // 
-            this.btnTambah.Location = new System.Drawing.Point(59, 348);
+            this.btnTambah.Location = new System.Drawing.Point(62, 348);
             this.btnTambah.Name = "btnTambah";
             this.btnTambah.Size = new System.Drawing.Size(75, 23);
             this.btnTambah.TabIndex = 28;
@@ -175,15 +152,6 @@
             this.label1.TabIndex = 16;
             this.label1.Text = "Nim";
             // 
-            // lblMessage
-            // 
-            this.lblMessage.AutoSize = true;
-            this.lblMessage.Location = new System.Drawing.Point(12, 416);
-            this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(64, 16);
-            this.lblMessage.TabIndex = 32;
-            this.lblMessage.Text = "Message";
-            // 
             // btnBack
             // 
             this.btnBack.Image = ((System.Drawing.Image)(resources.GetObject("btnBack.Image")));
@@ -202,10 +170,7 @@
             this.BackColor = System.Drawing.Color.Crimson;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.lblMessage);
             this.Controls.Add(this.btnRefresh);
-            this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.btnHapus);
             this.Controls.Add(this.btnTambah);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dgvKeuangan);
@@ -230,8 +195,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnRefresh;
-        private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button btnHapus;
         private System.Windows.Forms.Button btnTambah;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView dgvKeuangan;
@@ -243,7 +206,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblMessage;
         private System.Windows.Forms.PictureBox btnBack;
     }
 }

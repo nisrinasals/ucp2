@@ -118,17 +118,66 @@ namespace ucp2
 
         private void btnTambah_Click(object sender, EventArgs e)
         {
+            string nimInput = txtNim.Text.Trim();
+            string keterangan = txtKeterangan.Text.Trim();
+            string jenisTransaksi = txtJenis.Text.Trim();
+            decimal jumlah;
 
-        }
+            if (string.IsNullOrWhiteSpace(keterangan) || 
+                string.IsNullOrWhiteSpace(jenisTransaksi) || 
+                string.IsNullOrWhiteSpace(nimInput) ||
+                string.IsNullOrWhiteSpace(txtJumlah.Text))
+            {
+                MessageBox.Show("NIM, Keterangan, Jenis Transaksi, dan Jumlah harus diisi.", "Validasi Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-        private void btnHapus_Click(object sender, EventArgs e)
-        {
+            if (!string.Equals(jenisTransaksi, "Pemasukan", StringComparison.OrdinalIgnoreCase) &&
+                !string.Equals(jenisTransaksi, "Pengeluaran", StringComparison.OrdinalIgnoreCase))
+            {
+                MessageBox.Show("Jenis Transaksi hanya boleh 'Pemasukan' atau 'Pengeluaran'.", "Validasi Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-        }
+            if (!decimal.TryParse(txtJumlah.Text, out jumlah) || jumlah <= 0)
+            {
+                MessageBox.Show("Jumlah harus berupa angka positif dan valid.", "Validasi Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                SqlTransaction transaction = null;
 
+                try
+                { 
+                    conn.Open();
+                    transaction = conn.BeginTransaction(); 
+
+                    SqlCommand cmd = new SqlCommand("AddTransaksiKeuangan", conn); 
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Transaction = transaction; 
+
+
+                    cmd.Parameters.AddWithValue("@jenis_transaksi", jenisTransaksi);
+                    cmd.Parameters.AddWithValue("@keterangan", keterangan);
+                    cmd.Parameters.AddWithValue("@jumlah", jumlah);
+                    cmd.Parameters.AddWithValue("@nim", nimInput);
+                    cmd.ExecuteNonQuery(); 
+                    transaction.Commit();
+
+                    MessageBox.Show("Transaksi berhasil disimpan!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    _cache.Remove(CacheKey); 
+                    LoadData(); 
+                    ClearForm();             
+                }
+                catch (Exception ex)
+                {
+                    transaction?.Rollback();
+                    MessageBox.Show("Error: " + ex.Message, "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
