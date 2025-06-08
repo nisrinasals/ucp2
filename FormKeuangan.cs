@@ -9,6 +9,7 @@ namespace ucp2
     {
         private readonly string connectionString = "Server=SAS\\SQLEXPRESS;Database=keuangan2;Integrated Security=True";
 
+        private int _selectedKeuanganId = -1;
         private readonly MemoryCache _cache = MemoryCache.Default;
         private readonly CacheItemPolicy _policy = new CacheItemPolicy
         {
@@ -188,8 +189,27 @@ namespace ucp2
 
         private void dgvKeuangan_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex >= 0 && dgvKeuangan.Rows.Count > 0)
+            {
+                try
+                {
+                    var row = dgvKeuangan.Rows[e.RowIndex];
 
+                    _selectedKeuanganId = Convert.ToInt32(row.Cells["ID Keuangan"].Value);
+
+                    txtNim.Text = row.Cells["NIM Atlet"].Value?.ToString() ?? string.Empty; 
+                    txtKeterangan.Text = row.Cells["Keterangan"].Value?.ToString() ?? string.Empty;
+                    txtJenis.Text = row.Cells["Jenis Transaksi"].Value?.ToString() ?? string.Empty; 
+                    txtJumlah.Text = row.Cells["Jumlah"].Value?.ToString() ?? string.Empty;
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error saat memilih data: " + ex.Message, "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
+
         private void btnBack_Click(object sender, EventArgs e)
         {
             try
