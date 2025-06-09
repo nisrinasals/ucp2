@@ -82,7 +82,7 @@ namespace ucp2
             if (dgvPrestasi.Columns.Contains("ID Prestasi"))
                 dgvPrestasi.Columns["ID Prestasi"].Visible = false;
         }
-
+    //    aku nyoba
         private void EnsureIndexes()
         {
             using (var conn = new SqlConnection(connectionString))
