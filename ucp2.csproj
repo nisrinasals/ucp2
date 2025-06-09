@@ -74,6 +74,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSetKeuangan.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetKeuangan.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FormAtlet.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,11 +102,6 @@
     </Compile>
     <Compile Include="FormPrestasi.Designer.cs">
       <DependentUpon>FormPrestasi.cs</DependentUpon>
-    </Compile>
-    <Compile Include="KeuanganDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>KeuanganDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -136,16 +136,16 @@
       <DependentUpon>report.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportKeuangan.rdlc" />
-    <None Include="KeuanganDataSet.xsc">
-      <DependentUpon>KeuanganDataSet.xsd</DependentUpon>
+    <None Include="DataSetKeuangan.xsc">
+      <DependentUpon>DataSetKeuangan.xsd</DependentUpon>
     </None>
-    <None Include="KeuanganDataSet.xsd">
+    <None Include="DataSetKeuangan.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>KeuanganDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>DataSetKeuangan.Designer.cs</LastGenOutput>
     </None>
-    <None Include="KeuanganDataSet.xss">
-      <DependentUpon>KeuanganDataSet.xsd</DependentUpon>
+    <None Include="DataSetKeuangan.xss">
+      <DependentUpon>DataSetKeuangan.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

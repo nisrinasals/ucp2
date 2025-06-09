@@ -3,6 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Runtime.Caching;
+using Microsoft.Reporting.WebForms;
 namespace ucp2
 {
     public partial class FormKeuangan : Form
@@ -210,6 +211,7 @@ namespace ucp2
             }
         }
 
+
         private void btnBack_Click(object sender, EventArgs e)
         {
             try
@@ -222,5 +224,10 @@ namespace ucp2
             }
         }
 
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            report formReport = new report();
+            formReport.ShowDialog();
+        }
     }
 }
