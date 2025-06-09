@@ -20,7 +20,7 @@ namespace ucp2
         {
             InitializeComponent();
         }
-
+        //aku nyoba
         private void FormKeuangan_Load(object sender, EventArgs e)
         {
             EnsureIndexes();
