@@ -60,5 +60,10 @@ namespace ucp2
             reportViewer1.LocalReport.ReportPath = @"D:\kuliah\4\PABD\pabd\ucp2\ReportKeuangan.rdlc";
             reportViewer1.RefreshReport();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

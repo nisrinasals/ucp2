@@ -15,7 +15,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>id keuangan</Value>
+                            <Value>ID Keuangan</Value>
                             <Style />
                           </TextRun>
                         </TextRuns>
@@ -299,7 +299,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>nim</Value>
+                            <Value>NIM</Value>
                             <Style />
                           </TextRun>
                         </TextRuns>
@@ -332,7 +332,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>nama</Value>
+                            <Value>Nama</Value>
                             <Style />
                           </TextRun>
                         </TextRuns>
@@ -365,7 +365,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>jenis transaksi</Value>
+                            <Value>Jenis Transaksi</Value>
                             <Style />
                           </TextRun>
                         </TextRuns>
@@ -398,7 +398,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>keterangan</Value>
+                            <Value>Keterangan</Value>
                             <Style />
                           </TextRun>
                         </TextRuns>
@@ -431,7 +431,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>jumlah</Value>
+                            <Value>Jumlah</Value>
                             <Style />
                           </TextRun>
                         </TextRuns>
@@ -464,7 +464,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>tanggal</Value>
+                            <Value>Tanggal</Value>
                             <Style />
                           </TextRun>
                         </TextRuns>
@@ -497,7 +497,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>saldo total</Value>
+                            <Value>Saldo Akhir</Value>
                             <Style />
                           </TextRun>
                         </TextRuns>
@@ -570,7 +570,6 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>0.75353cm</Top>
-        <Left>0.5207cm</Left>
         <Height>1.2cm</Height>
         <Width>20cm</Width>
         <Style>
