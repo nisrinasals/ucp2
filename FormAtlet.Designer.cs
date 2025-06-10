@@ -46,6 +46,7 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.PictureBox();
+            this.BtnImport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAtlet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
             this.SuspendLayout();
@@ -122,7 +123,7 @@
             this.txtCabor.TabIndex = 9;
             // 
             // label5
-            // .
+            // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(46, 272);
             this.label5.Name = "label5";
@@ -174,7 +175,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(49, 389);
+            this.btnUpdate.Location = new System.Drawing.Point(49, 370);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 14;
@@ -184,7 +185,7 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(131, 389);
+            this.btnRefresh.Location = new System.Drawing.Point(131, 370);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(75, 23);
             this.btnRefresh.TabIndex = 15;
@@ -203,12 +204,23 @@
             this.btnBack.TabStop = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // BtnImport
+            // 
+            this.BtnImport.Location = new System.Drawing.Point(49, 404);
+            this.BtnImport.Name = "BtnImport";
+            this.BtnImport.Size = new System.Drawing.Size(75, 23);
+            this.BtnImport.TabIndex = 17;
+            this.BtnImport.Text = "import";
+            this.BtnImport.UseVisualStyleBackColor = true;
+            this.BtnImport.Click += new System.EventHandler(this.BtnImport_Click);
+            // 
             // FormAtlet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Crimson;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.BtnImport);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnUpdate);
@@ -255,5 +267,6 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.PictureBox btnBack;
+        private System.Windows.Forms.Button BtnImport;
     }
 }
