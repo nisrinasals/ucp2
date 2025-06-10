@@ -49,6 +49,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.dtpTanggal = new System.Windows.Forms.DateTimePicker();
             this.btnReport = new System.Windows.Forms.Button();
+            this.btnImport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEvent)).BeginInit();
             this.SuspendLayout();
@@ -92,7 +93,7 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(121, 384);
+            this.btnRefresh.Location = new System.Drawing.Point(121, 387);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(75, 23);
             this.btnRefresh.TabIndex = 34;
@@ -102,7 +103,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(26, 384);
+            this.btnUpdate.Location = new System.Drawing.Point(26, 387);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 33;
@@ -138,7 +139,7 @@
             this.dgvEvent.Name = "dgvEvent";
             this.dgvEvent.RowHeadersWidth = 51;
             this.dgvEvent.RowTemplate.Height = 24;
-            this.dgvEvent.Size = new System.Drawing.Size(527, 359);
+            this.dgvEvent.Size = new System.Drawing.Size(527, 402);
             this.dgvEvent.TabIndex = 32;
             this.dgvEvent.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEvent_CellContentClick);
             // 
@@ -224,7 +225,7 @@
             // 
             // btnReport
             // 
-            this.btnReport.Location = new System.Drawing.Point(77, 413);
+            this.btnReport.Location = new System.Drawing.Point(121, 423);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(75, 23);
             this.btnReport.TabIndex = 45;
@@ -232,12 +233,23 @@
             this.btnReport.UseVisualStyleBackColor = true;
             this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
+            // btnImport
+            // 
+            this.btnImport.Location = new System.Drawing.Point(26, 423);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(75, 23);
+            this.btnImport.TabIndex = 46;
+            this.btnImport.Text = "Import";
+            this.btnImport.UseVisualStyleBackColor = true;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
+            // 
             // FormEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Crimson;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 502);
+            this.Controls.Add(this.btnImport);
             this.Controls.Add(this.btnReport);
             this.Controls.Add(this.dtpTanggal);
             this.Controls.Add(this.txtPeran);
@@ -290,5 +302,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dtpTanggal;
         private System.Windows.Forms.Button btnReport;
+        private System.Windows.Forms.Button btnImport;
     }
 }
