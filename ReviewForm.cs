@@ -77,7 +77,7 @@ namespace ucp2
                     }
 
                     // Query SQL untuk memasukkan data ke tabel Mahasiswa
-                    string query = "INSERT INTO Mahasiswa (NIM, Nama, Email, Telepon, Alamat) VALUES (@NIM, @Nama, @Email, @Telepon, @Alamat)";
+                    string query = "INSERT INTO Mahasiswa (nim, nama, prodi, angkatan, cabor) VALUES (@nim, @nama, @prodi, @angkatan, @cabor)";
 
                     using (SqlConnection conn = new SqlConnection(connectionString))
                     {
@@ -86,11 +86,11 @@ namespace ucp2
                         using (SqlCommand cmd = new SqlCommand(query, conn))
                         {
                             // Menambahkan parameter untuk setiap kolom
-                            cmd.Parameters.AddWithValue("@NIM", row["NIM"]);
-                            cmd.Parameters.AddWithValue("@Nama", row["Nama"]);
-                            cmd.Parameters.AddWithValue("@Email", row["Email"]);
-                            cmd.Parameters.AddWithValue("@Telepon", row["Telepon"]);
-                            cmd.Parameters.AddWithValue("@Alamat", row["Alamat"]);
+                            cmd.Parameters.AddWithValue("@nim", row["nim"]);
+                            cmd.Parameters.AddWithValue("@nama", row["nama"]);
+                            cmd.Parameters.AddWithValue("@prodi", row["prodil"]);
+                            cmd.Parameters.AddWithValue("@angkatan", row["angkatan"]);
+                            cmd.Parameters.AddWithValue("@cabor", row["cabor"]);
 
                             // Menjalankan perintah SQL
                             cmd.ExecuteNonQuery();
@@ -113,11 +113,15 @@ namespace ucp2
 
         // Tambahkan validasi tambahan sesuai kebutuhan (misalnya pola tertentu)
 
-
+        //gg
 
         private void BtnOke_Click(object sender, EventArgs e)
         {
-
+            DialogResult result = MessageBox.Show("Apakah Anda ingin mengimpor data ini ke database?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                ImportDataToDatabase();
+            }
         }
     }
 }
