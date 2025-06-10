@@ -113,7 +113,7 @@ namespace ucp2
 
         // Tambahkan validasi tambahan sesuai kebutuhan (misalnya pola tertentu)
 
-
+        //gg
 
         private void BtnOke_Click(object sender, EventArgs e)
         {
