@@ -85,7 +85,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetKeuangan.xsd</DependentUpon>
     </Compile>
-    <Compile Include="FormAtlet.cs" />
+    <Compile Include="FormAtlet.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormAtlet.Designer.cs">
       <DependentUpon>FormAtlet.cs</DependentUpon>
     </Compile>
