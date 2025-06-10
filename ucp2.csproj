@@ -9,12 +9,13 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>ucp2</RootNamespace>
     <AssemblyName>ucp2</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -146,11 +147,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataSetEvent.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSetEvent.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DataSetKeuangan.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -194,11 +190,11 @@
     <Compile Include="report.Designer.cs">
       <DependentUpon>report.cs</DependentUpon>
     </Compile>
-    <Compile Include="reportEvent.cs">
+    <Compile Include="ReviewForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="reportEvent.Designer.cs">
-      <DependentUpon>reportEvent.cs</DependentUpon>
+    <Compile Include="ReviewForm.Designer.cs">
+      <DependentUpon>ReviewForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FormAtlet.resx">
       <DependentUpon>FormAtlet.cs</DependentUpon>
@@ -223,26 +219,15 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="report.resx">
       <DependentUpon>report.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReportEvent.rdlc" />
-    <EmbeddedResource Include="reportEvent.resx">
-      <DependentUpon>reportEvent.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ReportKeuangan.rdlc" />
-    <None Include="DataSetEvent.xsc">
-      <DependentUpon>DataSetEvent.xsd</DependentUpon>
-    </None>
-    <None Include="DataSetEvent.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSetEvent.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="DataSetEvent.xss">
-      <DependentUpon>DataSetEvent.xsd</DependentUpon>
-    </None>
+    <EmbeddedResource Include="ReviewForm.resx">
+      <DependentUpon>ReviewForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="DataSetKeuangan.xsc">
       <DependentUpon>DataSetKeuangan.xsd</DependentUpon>
     </None>
