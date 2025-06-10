@@ -3,6 +3,9 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Runtime.Caching;
+using NPOI.SS.UserModel;
+using NPOI.XSSF.UserModel;
+using System.IO;
 
 namespace ucp2
 {
@@ -10,7 +13,7 @@ namespace ucp2
  //ucel juga
  public partial class FormAtlet : Form
     {
-        private readonly string connectionString = "Server=SAS\\SQLEXPRESS;Database=keuangan2;Integrated Security=True";
+        private readonly string connectionString = "Server=LAPTOP-I0H7METT\\CHESTAYURCEL;Database=keuangan2;Integrated Security=True";
 
         private readonly MemoryCache _cache = MemoryCache.Default;
         private readonly CacheItemPolicy _policy = new CacheItemPolicy
@@ -271,6 +274,52 @@ namespace ucp2
             catch (Exception ex)
             {
                 MessageBox.Show("Error opening FormMenu: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnImport_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Excel Files|*.xlsx;*.xlsm";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+                PreviewData(filePath);
+            }
+        }
+        private void PreviewData(string filePath)
+        {
+            try
+            {
+                using (var fs = new FileStream(filePath, FileMode.Open, FileAccess.Read))
+                {
+                    IWorkbook workbook = new XSSFWorkbook(fs);
+                    ISheet sheet = workbook.GetSheetAt(0);
+                    DataTable dt = new DataTable();
+
+                    IRow headerRow = sheet.GetRow(0);
+                    foreach (var cell in headerRow.Cells)
+                        dt.Columns.Add(cell.ToString());
+
+                    for (int i = 1; i <= sheet.LastRowNum; i++)
+                    {
+                        IRow dataRow = sheet.GetRow(i);
+                        DataRow newRow = dt.NewRow();
+                        int cellIndex = 0;
+                        foreach (var cell in dataRow.Cells)
+                        {
+                            newRow[cellIndex++] = cell.ToString();
+                        }
+                        dt.Rows.Add(newRow);
+                    }
+
+                                     ReviewForm previewForm = new ReviewForm(dt);
+                                      previewForm.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error reading the Excel file: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

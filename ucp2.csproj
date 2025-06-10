@@ -200,6 +200,12 @@
     <Compile Include="reportEvent.Designer.cs">
       <DependentUpon>reportEvent.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReviewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReviewForm.Designer.cs">
+      <DependentUpon>ReviewForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FormAtlet.resx">
       <DependentUpon>FormAtlet.cs</DependentUpon>
     </EmbeddedResource>
@@ -232,6 +238,9 @@
       <DependentUpon>reportEvent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportKeuangan.rdlc" />
+    <EmbeddedResource Include="ReviewForm.resx">
+      <DependentUpon>ReviewForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="DataSetEvent.xsc">
       <DependentUpon>DataSetEvent.xsd</DependentUpon>
     </None>

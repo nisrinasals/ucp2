@@ -13,7 +13,7 @@ namespace ucp2
 {
     public partial class FormKeuangan : Form
     {
-        private readonly string connectionString = "Server=SAS\\SQLEXPRESS;Database=keuangan2;Integrated Security=True";
+        private readonly string connectionString = "Server=LAPTOP-I0H7METT\\CHESTAYURCEL;Database=keuangan2;Integrated Security=True";
 
         private int _selectedKeuanganId = -1;
         private readonly MemoryCache _cache = MemoryCache.Default;

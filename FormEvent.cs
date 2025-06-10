@@ -9,7 +9,7 @@ namespace ucp2
 {
     public partial class FormEvent : Form
     {
-        private readonly string connectionString = "Server=SAS\\SQLEXPRESS;Database=keuangan2;Integrated Security=True";
+        private readonly string connectionString = "Server=LAPTOP-I0H7METT\\CHESTAYURCEL;Database=keuangan2;Integrated Security=True";
 
         private int selectedEventId = -1;
         private int selectedPartisipasiId = -1;
