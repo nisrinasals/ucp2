@@ -31,6 +31,7 @@
             this.btnAtlet = new System.Windows.Forms.Button();
             this.btnPrestasi = new System.Windows.Forms.Button();
             this.btnKeuangan = new System.Windows.Forms.Button();
+            this.btnEvent = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAtlet
@@ -63,12 +64,23 @@
             this.btnKeuangan.UseVisualStyleBackColor = true;
             this.btnKeuangan.Click += new System.EventHandler(this.btnKeuangan_Click);
             // 
+            // btnEvent
+            // 
+            this.btnEvent.Location = new System.Drawing.Point(53, 235);
+            this.btnEvent.Name = "btnEvent";
+            this.btnEvent.Size = new System.Drawing.Size(188, 39);
+            this.btnEvent.TabIndex = 3;
+            this.btnEvent.Text = "Data Event";
+            this.btnEvent.UseVisualStyleBackColor = true;
+            this.btnEvent.Click += new System.EventHandler(this.btnEvent_Click);
+            // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Crimson;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnEvent);
             this.Controls.Add(this.btnKeuangan);
             this.Controls.Add(this.btnPrestasi);
             this.Controls.Add(this.btnAtlet);
@@ -83,6 +95,7 @@
         private System.Windows.Forms.Button btnAtlet;
         private System.Windows.Forms.Button btnPrestasi;
         private System.Windows.Forms.Button btnKeuangan;
+        private System.Windows.Forms.Button btnEvent;
     }
 }
 

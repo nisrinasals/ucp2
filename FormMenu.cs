@@ -58,5 +58,21 @@ namespace ucp2
                 MessageBox.Show("Error opening FormKeuangan: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnEvent_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Hide();
+                FormEvent formEvent = new FormEvent();
+                formEvent.ShowDialog(); // Menampilkan form FormEvent
+                this.Show();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error opening FormEvent: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
