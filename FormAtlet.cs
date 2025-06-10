@@ -6,7 +6,8 @@ using System.Runtime.Caching;
 
 namespace ucp2
 {
-    public partial class FormAtlet : Form
+ //agung in here
+ public partial class FormAtlet : Form
     {
         private readonly string connectionString = "Server=SAS\\SQLEXPRESS;Database=keuangan2;Integrated Security=True";
 
