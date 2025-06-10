@@ -209,7 +209,6 @@
             this.BtnImport.TabIndex = 25;
             this.BtnImport.Text = "Import";
             this.BtnImport.UseVisualStyleBackColor = true;
-            this.BtnImport.Click += new System.EventHandler(this.BtnImport_Click);
             // 
             // FormPrestasi
             // 
