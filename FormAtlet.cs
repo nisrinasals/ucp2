@@ -29,7 +29,7 @@ namespace ucp2
             EnsureIndexes();
             LoadData();
         }
-        //nih gung
+        //nih gung.
         private void LoadData()
         {
             DataTable dt;
