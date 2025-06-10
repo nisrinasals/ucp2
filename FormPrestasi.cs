@@ -285,7 +285,6 @@ namespace ucp2
                 PreviewData(filePath);
             }
         }
-
         private void PreviewData(string filePath)
         {
             try
