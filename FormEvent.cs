@@ -3,6 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Runtime.Caching;
+using System.Linq;
 
 namespace ucp2
 {
@@ -10,8 +11,8 @@ namespace ucp2
     {
         private readonly string connectionString = "Server=SAS\\SQLEXPRESS;Database=keuangan2;Integrated Security=True";
 
-        private int _selectedRelasiId = -1;
-        private int _selectedPrestasiDefinitionId = -1;
+        private int selectedEventId = -1;
+        private int selectedPartisipasiId = -1;
         private readonly MemoryCache _cache = MemoryCache.Default;
         private readonly CacheItemPolicy _policy = new CacheItemPolicy
         {
@@ -52,7 +53,8 @@ namespace ucp2
                             E.keterangan AS [Keterangan],
                             E.tanggal AS [Tanggal],
                             PA.nim AS [NIM],
-                            PA.peran_partisipasi AS [Peran]
+                            PA.peran_partisipasi AS [Peran],
+                            PA.id_partisipasi AS [ID Partisipasi]
                         FROM 
                             Event E
                         INNER JOIN 
@@ -75,6 +77,8 @@ namespace ucp2
 
             if (dgvEvent.Columns.Contains("ID Event"))
                 dgvEvent.Columns["ID Event"].Visible = false;
+            if (dgvEvent.Columns.Contains("ID Partisipasi"))
+                dgvEvent.Columns["ID Partisipasi"].Visible = false;
 
         }
 
@@ -222,45 +226,152 @@ namespace ucp2
                 return;
             }
 
-            DialogResult confirm = MessageBox.Show(
-                $"Apakah Anda yakin ingin menghapus Event dengan ID: {idEventToDelete} dan semua partisipasi atlet yang terkait?",
-                "Konfirmasi Hapus Data",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-            );
-
-            if (confirm == DialogResult.Yes)
+            if (MessageBox.Show("Yakin ingin menghapus data ini?", "Konfirmasi", MessageBoxButtons.YesNo) != DialogResult.Yes)
+                return;
+            try
             {
-                SqlConnection conn = null; 
-                try
+                using (var conn = new SqlConnection(connectionString))
                 {
-                    conn = new SqlConnection(connectionString);
                     conn.Open();
-
-
-                    using (SqlCommand cmd = new SqlCommand("DeleteEvent", conn))
+                    using (var cmd = new SqlCommand("DeleteEvent", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@id_event", idEventToDelete);
-
-                        int rowsAffected = cmd.ExecuteNonQuery();
-
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show("Event dan partisipasi terkait berhasil dihapus!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            LoadData(); 
-                            ClearForm(); 
-                        }
-                        else
-                        {
-                            MessageBox.Show("Gagal menghapus Event.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
+                        cmd.ExecuteNonQuery();
                     }
                 }
-                catch (Exception ex)
+                _cache.Remove(CacheKey);
+                MessageBox.Show("Data berhasil dihapus!", "Sukses");
+                LoadData();
+                ClearForm();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Kesalahan");
+            }
+        }
+
+        private void dgvEvent_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvEvent.Rows[e.RowIndex];
+
+                if (row.Cells["ID Event"].Value != null && int.TryParse(row.Cells["ID Event"].Value.ToString(), out selectedEventId))
                 {
-                    MessageBox.Show("Terjadi kesalahan saat menghapus data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (row.Cells["ID Partisipasi"].Value != null && int.TryParse(row.Cells["ID Partisipasi"].Value.ToString(), out selectedPartisipasiId))
+                    {
+                        // selectedPartisipasiId berhasil diambil
+                    }
+                    else
+                    {
+                        selectedPartisipasiId = -1; 
+                        MessageBox.Show("ID Partisipasi tidak valid atau tidak ditemukan di baris yang dipilih.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+
+                    txtEvent.Text = row.Cells["Nama Event"].Value?.ToString();
+                    txtJenisEvent.Text = row.Cells["Jenis Event"].Value?.ToString();
+                    txtKeterangan.Text = row.Cells["Keterangan"].Value?.ToString(); 
+
+                    if (row.Cells["Tanggal"].Value != null && DateTime.TryParse(row.Cells["Tanggal"].Value.ToString(), out DateTime eventDate))
+                    {
+                        dtpTanggal.Value = eventDate;
+                    }
+                    else
+                    {
+                        dtpTanggal.Value = DateTime.Today;
+                    }
+                    txtNIM.Text = row.Cells["NIM"].Value?.ToString(); 
+                    txtPeran.Text = row.Cells["Peran"].Value?.ToString(); 
+
                 }
+                else
+                {
+                    selectedEventId = -1;
+                    MessageBox.Show("Gagal mendapatkan ID Event dari baris yang dipilih.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (selectedEventId == -1)
+            {
+                MessageBox.Show("Pilih event yang ingin diperbarui dari tabel terlebih dahulu.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string namaEvent = txtEvent.Text.Trim();
+            string jenisEvent = txtJenisEvent.Text.Trim();
+            string keteranganEvent = txtKeterangan.Text.Trim();
+            DateTime selectedEventDate = dtpTanggal.Value;
+            string nimAtlet = txtNIM.Text.Trim();
+            string peranPartisipasi = txtPeran.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(namaEvent) ||
+                string.IsNullOrWhiteSpace(jenisEvent) ||
+                string.IsNullOrWhiteSpace(keteranganEvent))
+            {
+                MessageBox.Show("Nama Event, Jenis Event, dan Keterangan tidak boleh kosong.", "Validasi Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (selectedEventDate > DateTime.Today)
+            {
+                MessageBox.Show("Tanggal event tidak boleh lebih dari 1 tahun di masa depan.", "Validasi Tanggal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (selectedEventDate < DateTime.Today.AddYears(-10))
+            {
+                MessageBox.Show("Tanggal event terlalu jauh di masa lalu.", "Validasi Tanggal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (MessageBox.Show("Apakah Anda yakin ingin memperbarui data Event ini?", "Konfirmasi Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                return; 
+            }
+
+            SqlConnection conn = null;
+            SqlTransaction transaction = null;
+
+            try
+            {
+                conn = new SqlConnection(connectionString);
+                conn.Open();
+                transaction = conn.BeginTransaction();
+
+                using (SqlCommand cmd = new SqlCommand("UpdateEventAndPartisipasi", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Transaction = transaction;
+                    cmd.Parameters.AddWithValue("@id_event", selectedEventId); 
+                    cmd.Parameters.AddWithValue("@nama_event", namaEvent);
+                    cmd.Parameters.AddWithValue("@jenis_event", jenisEvent);
+                    cmd.Parameters.AddWithValue("@tanggal", selectedEventDate.Date); 
+                    cmd.Parameters.AddWithValue("@keterangan", keteranganEvent);
+
+                    cmd.Parameters.AddWithValue("@id_partisipasi", selectedPartisipasiId);
+                    cmd.Parameters.AddWithValue("@new_nim", nimAtlet);
+                    cmd.Parameters.AddWithValue("@new_peran_partisipasi", peranPartisipasi);
+
+                    cmd.ExecuteNonQuery();
+
+                }
+                transaction.Commit(); 
+
+                _cache.Remove(CacheKey);
+
+                MessageBox.Show("Data Event dan Partisipasi Atlet berhasil diperbarui!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadData();
+                ClearForm();
+                selectedEventId = -1;
+                selectedPartisipasiId = -1;
+            }
+            catch (Exception ex)
+            {
+                transaction?.Rollback();
+                MessageBox.Show("Error: " + ex.Message, "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

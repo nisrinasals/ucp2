@@ -107,6 +107,7 @@
             this.btnUpdate.TabIndex = 33;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnHapus
             // 
@@ -138,6 +139,7 @@
             this.dgvEvent.RowTemplate.Height = 24;
             this.dgvEvent.Size = new System.Drawing.Size(527, 359);
             this.dgvEvent.TabIndex = 32;
+            this.dgvEvent.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEvent_CellContentClick);
             // 
             // txtJenisEvent
             // 
