@@ -146,6 +146,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSetEvent.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetEvent.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSetKeuangan.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -189,6 +194,12 @@
     <Compile Include="report.Designer.cs">
       <DependentUpon>report.cs</DependentUpon>
     </Compile>
+    <Compile Include="reportEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reportEvent.Designer.cs">
+      <DependentUpon>reportEvent.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FormAtlet.resx">
       <DependentUpon>FormAtlet.cs</DependentUpon>
     </EmbeddedResource>
@@ -216,7 +227,22 @@
     <EmbeddedResource Include="report.resx">
       <DependentUpon>report.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportEvent.rdlc" />
+    <EmbeddedResource Include="reportEvent.resx">
+      <DependentUpon>reportEvent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportKeuangan.rdlc" />
+    <None Include="DataSetEvent.xsc">
+      <DependentUpon>DataSetEvent.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetEvent.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetEvent.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetEvent.xss">
+      <DependentUpon>DataSetEvent.xsd</DependentUpon>
+    </None>
     <None Include="DataSetKeuangan.xsc">
       <DependentUpon>DataSetKeuangan.xsd</DependentUpon>
     </None>

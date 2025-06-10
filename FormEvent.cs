@@ -374,5 +374,11 @@ namespace ucp2
                 MessageBox.Show("Error: " + ex.Message, "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            reportEvent formReportEvent = new reportEvent();
+            formReportEvent.ShowDialog();
+        }
     }
 }

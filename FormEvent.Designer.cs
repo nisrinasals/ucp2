@@ -48,6 +48,7 @@
             this.txtPeran = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dtpTanggal = new System.Windows.Forms.DateTimePicker();
+            this.btnReport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEvent)).BeginInit();
             this.SuspendLayout();
@@ -221,12 +222,23 @@
             this.dtpTanggal.Size = new System.Drawing.Size(170, 22);
             this.dtpTanggal.TabIndex = 44;
             // 
+            // btnReport
+            // 
+            this.btnReport.Location = new System.Drawing.Point(77, 413);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(75, 23);
+            this.btnReport.TabIndex = 45;
+            this.btnReport.Text = "Report";
+            this.btnReport.UseVisualStyleBackColor = true;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
+            // 
             // FormEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Crimson;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnReport);
             this.Controls.Add(this.dtpTanggal);
             this.Controls.Add(this.txtPeran);
             this.Controls.Add(this.label7);
@@ -277,5 +289,6 @@
         private System.Windows.Forms.TextBox txtPeran;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dtpTanggal;
+        private System.Windows.Forms.Button btnReport;
     }
 }

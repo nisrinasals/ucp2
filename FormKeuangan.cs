@@ -272,8 +272,8 @@ namespace ucp2
                         dt.Rows.Add(newRow);
                     }
 
-                    ReviewForm previewForm = new ReviewForm(dt);
-                    previewForm.ShowDialog();
+//                    ReviewForm previewForm = new ReviewForm(dt);
+//                    previewForm.ShowDialog();
                 }
             }
             catch (Exception ex)
