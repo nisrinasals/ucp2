@@ -122,7 +122,7 @@
             this.txtCabor.TabIndex = 9;
             // 
             // label5
-            // 
+            // .
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(46, 272);
             this.label5.Name = "label5";
