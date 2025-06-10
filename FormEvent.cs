@@ -80,7 +80,32 @@ namespace ucp2
 
         private void EnsureIndexes()
         {
+            using (var conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    var indexScript = @"
+                    IF OBJECT_ID('dbo.Event', 'U') IS NOT NULL
+                        BEGIN
+                            IF NOT EXISTS (SELECT 1 FROM sys.indexes WHERE name='idx_Event_Nama')
+                                CREATE NONCLUSTERED INDEX idx_Event_Nama ON dbo.Event(nama_event);
+                            IF NOT EXISTS (SELECT 1 FROM sys.indexes WHERE name='idx_Event_JenisEvent')
+                                CREATE NONCLUSTERED INDEX idx_Event_JenisEvent ON dbo.Event(jenis_event);
+                            IF NOT EXISTS (SELECT 1 FROM sys.indexes WHERE name='idx_Event_Tanggal')
+                                CREATE NONCLUSTERED INDEX idx_Event_Tanggal ON dbo.Event(tanggal);
+                        END";
 
+                    using (var cmd = new SqlCommand(indexScript, conn))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error saat memastikan indeks: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void ClearForm()
@@ -167,6 +192,19 @@ namespace ucp2
         {
             _cache.Remove(CacheKey);
             LoadData();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error opening FormMenu: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }
