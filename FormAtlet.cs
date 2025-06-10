@@ -58,6 +58,7 @@ namespace ucp2
             dgvAtlet.AutoGenerateColumns = true;
             dgvAtlet.DataSource = dt;
         }
+        //nih sals
 
         private void EnsureIndexes()
         {
