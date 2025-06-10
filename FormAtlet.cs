@@ -110,33 +110,71 @@ namespace ucp2
                 string.IsNullOrWhiteSpace(txtAngkatan.Text) ||
                 string.IsNullOrWhiteSpace(txtCabor.Text))
             {
-                MessageBox.Show("Harap isi semua data!", "Peringatan");
+                MessageBox.Show("Harap isi semua data!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+            SqlConnection conn = null;
+            SqlTransaction transaction = null;
+
             try
             {
-                using (var conn = new SqlConnection(connectionString))
+                conn = new SqlConnection(connectionString);
+                conn.Open();
+
+                transaction = conn.BeginTransaction();
+
+                using (var checkCmd = new SqlCommand("SELECT COUNT(*) FROM Atlet WHERE nim = @nim", conn, transaction))
                 {
-                    conn.Open();
-                    using (var cmd = new SqlCommand("AddAtlet", conn))
+                    checkCmd.Parameters.AddWithValue("@nim", txtNim.Text.Trim());
+
+                    int existingCount = (int)checkCmd.ExecuteScalar();
+
+                    if (existingCount > 0)
                     {
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@nim", txtNim.Text.Trim());
-                        cmd.Parameters.AddWithValue("@nama", txtNama.Text.Trim());
-                        cmd.Parameters.AddWithValue("@prodi", txtProdi.Text.Trim());
-                        cmd.Parameters.AddWithValue("@angkatan", txtAngkatan.Text.Trim());
-                        cmd.Parameters.AddWithValue("@cabor", txtCabor.Text.Trim());
-                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Data dengan NIM tersebut sudah ada!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        transaction.Rollback();
+                        return;
                     }
                 }
-                _cache.Remove(CacheKey);
-                MessageBox.Show("Data berhasil ditambahkan!", "Sukses");
+
+                using (var cmd = new SqlCommand("AddAtlet", conn, transaction))
+                {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@nim", txtNim.Text.Trim());
+                    cmd.Parameters.AddWithValue("@nama", txtNama.Text.Trim());
+                    cmd.Parameters.AddWithValue("@prodi", txtProdi.Text.Trim());
+                    cmd.Parameters.AddWithValue("@angkatan", txtAngkatan.Text.Trim());
+                    cmd.Parameters.AddWithValue("@cabor", txtCabor.Text.Trim());
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                transaction.Commit();
+
+
+                MessageBox.Show("Data berhasil ditambahkan!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 LoadData();
                 ClearForm();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Kesalahan");
+                try
+                {
+                    transaction?.Rollback();
+                }
+                catch (Exception rollbackEx)
+                {
+                    MessageBox.Show("Kesalahan kritis! Gagal melakukan rollback: " + rollbackEx.Message, "Kesalahan Kritis", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                MessageBox.Show("Terjadi kesalahan saat menambahkan data: " + ex.Message, "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn?.Close();
             }
         }
 

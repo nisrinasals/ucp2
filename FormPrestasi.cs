@@ -3,6 +3,9 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Runtime.Caching;
+using NPOI.SS.UserModel;
+using NPOI.XSSF.UserModel;
+using System.IO;
 
 
 namespace ucp2
@@ -126,36 +129,44 @@ namespace ucp2
         private void btnTambah_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtNIM.Text) ||
-               string.IsNullOrWhiteSpace(txtPrestasi.Text) ||
-               string.IsNullOrWhiteSpace(txtTingkat.Text) ||
+                string.IsNullOrWhiteSpace(txtPrestasi.Text) ||
+                string.IsNullOrWhiteSpace(txtTingkat.Text) ||
                 string.IsNullOrWhiteSpace(txtTahun.Text))
             {
-                MessageBox.Show("Harap isi semua data!", "Peringatan");
+                MessageBox.Show("Harap isi semua data!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
             try
             {
                 using (var conn = new SqlConnection(connectionString))
                 {
-                    conn.Open();
-                    using (var cmd = new SqlCommand("AddPrestasi", conn))
+                    using (var cmd = new SqlCommand("AddPrestasiForAtlet", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
+
                         cmd.Parameters.AddWithValue("@nim", txtNIM.Text.Trim());
                         cmd.Parameters.AddWithValue("@nama_prestasi", txtPrestasi.Text.Trim());
                         cmd.Parameters.AddWithValue("@tingkat_prestasi", txtTingkat.Text.Trim());
                         cmd.Parameters.AddWithValue("@tahun_prestasi", txtTahun.Text.Trim());
+
+                        conn.Open();
                         cmd.ExecuteNonQuery();
                     }
                 }
-                _cache.Remove(CacheKey);
-                MessageBox.Show("Data berhasil ditambahkan!", "Sukses");
+
+                MessageBox.Show("Data prestasi berhasil ditambahkan!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 LoadData();
                 ClearForm();
             }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Gagal menambahkan data: " + ex.Message, "Kesalahan Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Kesalahan");
+                MessageBox.Show("Terjadi kesalahan umum: " + ex.Message, "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -261,6 +272,53 @@ namespace ucp2
             catch (Exception ex)
             {
                 MessageBox.Show("Error opening FormMenu: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnImport_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Excel Files|*.xlsx;*.xlsm";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+                PreviewData(filePath);
+            }
+        }
+
+        private void PreviewData(string filePath)
+        {
+            try
+            {
+                using (var fs = new FileStream(filePath, FileMode.Open, FileAccess.Read))
+                {
+                    IWorkbook workbook = new XSSFWorkbook(fs);
+                    ISheet sheet = workbook.GetSheetAt(0);
+                    DataTable dt = new DataTable();
+
+                    IRow headerRow = sheet.GetRow(0);
+                    foreach (var cell in headerRow.Cells)
+                        dt.Columns.Add(cell.ToString());
+
+                    for (int i = 1; i <= sheet.LastRowNum; i++)
+                    {
+                        IRow dataRow = sheet.GetRow(i);
+                        DataRow newRow = dt.NewRow();
+                        int cellIndex = 0;
+                        foreach (var cell in dataRow.Cells)
+                        {
+                            newRow[cellIndex++] = cell.ToString();
+                        }
+                        dt.Rows.Add(newRow);
+                    }
+
+                    ReviewForm previewForm = new ReviewForm(dt);
+                    previewForm.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error reading the Excel file: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

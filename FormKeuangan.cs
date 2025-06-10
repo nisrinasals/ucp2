@@ -4,6 +4,11 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Runtime.Caching;
 using Microsoft.Reporting.WebForms;
+using System.Collections.Generic;
+using System.IO;
+using System.IO;
+using NPOI.SS.UserModel;
+using NPOI.XSSF.UserModel;
 namespace ucp2
 {
     public partial class FormKeuangan : Form
@@ -228,6 +233,53 @@ namespace ucp2
         {
             report formReport = new report();
             formReport.ShowDialog();
+        }
+
+        private void btnImport_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Excel Files|*.xlsx;*.xlsm";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+                PreviewData(filePath);
+            }
+        }
+
+        private void PreviewData(string filePath)
+        {
+            try
+            {
+                using (var fs = new FileStream(filePath, FileMode.Open, FileAccess.Read))
+                {
+                    IWorkbook workbook = new XSSFWorkbook(fs);
+                    ISheet sheet = workbook.GetSheetAt(0);
+                    DataTable dt = new DataTable();
+
+                    IRow headerRow = sheet.GetRow(0);
+                    foreach (var cell in headerRow.Cells)
+                        dt.Columns.Add(cell.ToString());
+
+                    for (int i = 1; i <= sheet.LastRowNum; i++)
+                    {
+                        IRow dataRow = sheet.GetRow(i);
+                        DataRow newRow = dt.NewRow();
+                        int cellIndex = 0;
+                        foreach (var cell in dataRow.Cells)
+                        {
+                            newRow[cellIndex++] = cell.ToString();
+                        }
+                        dt.Rows.Add(newRow);
+                    }
+
+                    ReviewForm previewForm = new ReviewForm(dt);
+                    previewForm.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error reading the Excel file: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
