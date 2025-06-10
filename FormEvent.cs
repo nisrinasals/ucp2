@@ -1,0 +1,172 @@
+﻿using System;
+using System.Data;
+using System.Data.SqlClient;
+using System.Windows.Forms;
+using System.Runtime.Caching;
+
+namespace ucp2
+{
+    public partial class FormEvent : Form
+    {
+        private readonly string connectionString = "Server=SAS\\SQLEXPRESS;Database=keuangan2;Integrated Security=True";
+
+        private int _selectedRelasiId = -1;
+        private int _selectedPrestasiDefinitionId = -1;
+        private readonly MemoryCache _cache = MemoryCache.Default;
+        private readonly CacheItemPolicy _policy = new CacheItemPolicy
+        {
+            AbsoluteExpiration = DateTimeOffset.Now.AddMinutes(5)
+        };
+        private const string CacheKey = "EventData";
+        public FormEvent()
+        {
+            InitializeComponent();
+        }
+
+        private void FormEvent_Load(object sender, EventArgs e)
+        {
+            EnsureIndexes();
+            LoadData();
+        }
+
+        private void LoadData()
+        {
+            DataTable dt;
+            if (_cache.Contains(CacheKey))
+            {
+                dt = _cache.Get(CacheKey) as DataTable;
+            }
+            else
+            {
+                dt = new DataTable();
+                try
+                {
+                    using (var conn = new SqlConnection(connectionString))
+                    {
+                        conn.Open();
+                        var query = @"
+                        SELECT
+                            E.id_event AS [ID Event],
+                            E.nama_event AS [Nama Event],
+                            E.jenis_event AS [Jenis Event],
+                            E.keterangan AS [Keterangan],
+                            E.tanggal AS [Tanggal],
+                            PA.nim AS [NIM],
+                            PA.peran_partisipasi AS [Peran]
+                        FROM 
+                            Event E
+                        INNER JOIN 
+                            Partisipasi_Atlet PA ON E.id_event = PA.id_event";
+
+                        var da = new SqlDataAdapter(query, conn);
+                        da.Fill(dt);
+                    }
+                    _cache.Add(CacheKey, dt, _policy);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error memuat data event atlet: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    dt = new DataTable();
+                }
+
+            }
+            dgvEvent.AutoGenerateColumns = true;
+            dgvEvent.DataSource = dt;
+
+            if (dgvEvent.Columns.Contains("ID Event"))
+                dgvEvent.Columns["ID Event"].Visible = false;
+
+        }
+
+        private void EnsureIndexes()
+        {
+
+        }
+
+        private void ClearForm()
+        {
+            txtNIM.Clear();
+            txtEvent.Clear();
+            txtJenisEvent.Clear();
+            txtKeterangan.Clear();
+            txtPeran.Clear();
+
+            txtNIM.Focus();
+        }
+
+        private void btnTambah_Click(object sender, EventArgs e)
+        {
+            string nimAtlet = txtNIM.Text.Trim();
+            string namaEvent = txtEvent.Text.Trim();
+            string jenisEvent = txtJenisEvent.Text.Trim();
+            string keterangan = txtKeterangan.Text.Trim();
+            string peran = txtPeran.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(txtNIM.Text) ||
+                string.IsNullOrWhiteSpace(txtEvent.Text) ||
+                string.IsNullOrWhiteSpace(txtJenisEvent.Text) ||
+                string.IsNullOrWhiteSpace(txtKeterangan.Text) ||
+                string.IsNullOrWhiteSpace(txtPeran.Text))
+            {
+                MessageBox.Show("Harap isi semua data!", "Peringatan");
+                return;
+            }
+
+            DateTime selectedDate = dtpTanggal.Value;
+
+            if (selectedDate > DateTime.Today)
+            {
+                MessageBox.Show("Tanggal event tidak boleh di masa depan.", "Validasi Tanggal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (selectedDate < DateTime.Today.AddYears(-100))
+            {
+                MessageBox.Show("Tanggal event terlalu jauh di masa lalu.", "Validasi Tanggal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                SqlTransaction transaction = null;
+
+                try
+                {
+                    conn.Open();
+                    transaction = conn.BeginTransaction();
+
+                    SqlCommand cmd = new SqlCommand("AddEventWithPartisipasi", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Transaction = transaction;
+
+
+                    cmd.Parameters.AddWithValue("@nama_event", namaEvent);
+                    cmd.Parameters.AddWithValue("@jenis_event", jenisEvent);
+                    cmd.Parameters.AddWithValue("@tanggal", selectedDate.Date);
+                    cmd.Parameters.AddWithValue("@keterangan", keterangan);
+                    cmd.Parameters.AddWithValue("@peran_partisipasi", peran);
+                    cmd.Parameters.AddWithValue("@nim", nimAtlet);
+                    cmd.ExecuteNonQuery();
+                    transaction.Commit();
+
+                    MessageBox.Show("Transaksi berhasil disimpan!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    _cache.Remove(CacheKey);
+                    LoadData();
+                    ClearForm();
+                }
+                catch (Exception ex)
+                {
+                    transaction?.Rollback();
+                    MessageBox.Show("Error: " + ex.Message, "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            _cache.Remove(CacheKey);
+            LoadData();
+        }
+    }
+}

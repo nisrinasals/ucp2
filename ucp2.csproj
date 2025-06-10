@@ -91,6 +91,12 @@
     <Compile Include="FormAtlet.Designer.cs">
       <DependentUpon>FormAtlet.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEvent.Designer.cs">
+      <DependentUpon>FormEvent.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormKeuangan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,9 @@
     </Compile>
     <EmbeddedResource Include="FormAtlet.resx">
       <DependentUpon>FormAtlet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEvent.resx">
+      <DependentUpon>FormEvent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormKeuangan.resx">
       <DependentUpon>FormKeuangan.cs</DependentUpon>
