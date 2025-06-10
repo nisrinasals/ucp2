@@ -174,7 +174,7 @@ namespace ucp2
                     cmd.ExecuteNonQuery();
                     transaction.Commit();
 
-                    MessageBox.Show("Transaksi berhasil disimpan!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Event atlet berhasil disimpan!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     _cache.Remove(CacheKey);
                     LoadData();
@@ -205,6 +205,63 @@ namespace ucp2
                 MessageBox.Show("Error opening FormMenu: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        private void btnHapus_Click(object sender, EventArgs e)
+        {
+            if (dgvEvent.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Pilih baris event yang ingin dihapus terlebih dahulu.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int idEventToDelete;
+            if (!int.TryParse(dgvEvent.SelectedRows[0].Cells["ID Event"].Value?.ToString(), out idEventToDelete)) 
+            {
+                MessageBox.Show("ID Event tidak valid atau tidak ditemukan di baris yang dipilih.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            DialogResult confirm = MessageBox.Show(
+                $"Apakah Anda yakin ingin menghapus Event dengan ID: {idEventToDelete} dan semua partisipasi atlet yang terkait?",
+                "Konfirmasi Hapus Data",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (confirm == DialogResult.Yes)
+            {
+                SqlConnection conn = null; 
+                try
+                {
+                    conn = new SqlConnection(connectionString);
+                    conn.Open();
+
+
+                    using (SqlCommand cmd = new SqlCommand("DeleteEvent", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@id_event", idEventToDelete);
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Event dan partisipasi terkait berhasil dihapus!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadData(); 
+                            ClearForm(); 
+                        }
+                        else
+                        {
+                            MessageBox.Show("Gagal menghapus Event.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Terjadi kesalahan saat menghapus data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
