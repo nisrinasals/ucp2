@@ -281,5 +281,58 @@ namespace ucp2
                 MessageBox.Show("Error reading the Excel file: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnHapus_Click(object sender, EventArgs e)
+        {
+            if (_selectedKeuanganId == -1)
+            {
+                MessageBox.Show("Silakan pilih data yang akan dihapus terlebih dahulu.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var confirmResult = MessageBox.Show("Apakah Anda yakin ingin menghapus data ini secara permanen?", "Konfirmasi Hapus", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirmResult == DialogResult.No)
+            {
+                return;
+            }
+
+            using (var conn = new SqlConnection(connectionString))
+            {
+                SqlTransaction transaction = null;
+                try
+                {
+                    conn.Open();
+                    transaction = conn.BeginTransaction();
+
+                    var query = "DELETE FROM DataKeuangan WHERE id_keuangan = @id_keuangan";
+
+                    using (var cmd = new SqlCommand(query, conn, transaction))
+                    {
+                        cmd.Parameters.AddWithValue("@id_keuangan", _selectedKeuanganId);
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected == 0)
+                        {
+                            throw new Exception("Data tidak ditemukan di database. Mungkin sudah dihapus.");
+                        }
+
+                        transaction.Commit();
+
+                        MessageBox.Show("Data berhasil dihapus!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                    _cache.Remove(CacheKey);
+                    LoadData();
+                    ClearForm();
+                    _selectedKeuanganId = -1;
+                }
+                catch (Exception ex)
+                {
+                    transaction?.Rollback();
+                    MessageBox.Show("Terjadi kesalahan saat menghapus data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }
