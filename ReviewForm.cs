@@ -49,19 +49,14 @@ namespace ucp2
         {
             try
             {
-                // Mengambil data dari DataGridView Preview
                 DataTable dt = (DataTable)dgvPreview.DataSource;
 
-                // Melakukan validasi dan import data baris per baris
                 foreach (DataRow row in dt.Rows)
                 {
-                    // Validasi setiap baris sebelum diimpor
                     if (!ValidateRow(row))
                     {
-                        // Jika validasi gagal, lanjutkan ke baris berikutnya
-                        continue; // Lewati baris ini jika tidak valid
+                        continue;
                     }
-                    // Query SQL untuk memasukkan data ke tabel Mahasiswa
                     string query = "INSERT INTO Atlet (nim, nama, prodi, angkatan, cabor) VALUES (@nim, @nama, @prodi, @angkatan, @cabor)";
 
                     using (SqlConnection conn = new SqlConnection(connectionString))
@@ -70,27 +65,22 @@ namespace ucp2
 
                         using (SqlCommand cmd = new SqlCommand(query, conn))
                         {
-                            // Menambahkan parameter untuk setiap kolom
                             cmd.Parameters.AddWithValue("@nim", row["nim"]);
                             cmd.Parameters.AddWithValue("@nama", row["nama"]);
                             cmd.Parameters.AddWithValue("@prodi", row["prodi"]);
                             cmd.Parameters.AddWithValue("@angkatan", row["angkatan"]);
                             cmd.Parameters.AddWithValue("@cabor", row["cabor"]);
 
-                            // Menjalankan perintah SQL
                             cmd.ExecuteNonQuery();
                         }
                     }
                 }
-                // Menampilkan pesan sukses setelah data berhasil diimpor
                 MessageBox.Show("Data berhasil dimasukkan ke database.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Menutup form preview setelah data diimpor
                 this.Close();
             }
             catch (Exception ex)
             {
-                // Menampilkan pesan kesalahan jika terjadi error saat mengimpor data
                 MessageBox.Show("Terjadi kesalahan saat mengimpor data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
