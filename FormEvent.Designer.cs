@@ -49,13 +49,14 @@
             this.label7 = new System.Windows.Forms.Label();
             this.dtpTanggal = new System.Windows.Forms.DateTimePicker();
             this.btnReport = new System.Windows.Forms.Button();
+            this.btnImport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEvent)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNIM
             // 
-            this.txtNIM.Location = new System.Drawing.Point(26, 97);
+            this.txtNIM.Location = new System.Drawing.Point(26, 89);
             this.txtNIM.Name = "txtNIM";
             this.txtNIM.Size = new System.Drawing.Size(170, 22);
             this.txtNIM.TabIndex = 28;
@@ -63,7 +64,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 78);
+            this.label4.Location = new System.Drawing.Point(23, 70);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 16);
             this.label4.TabIndex = 39;
@@ -92,7 +93,7 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(121, 384);
+            this.btnRefresh.Location = new System.Drawing.Point(120, 392);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(75, 23);
             this.btnRefresh.TabIndex = 34;
@@ -102,7 +103,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(26, 384);
+            this.btnUpdate.Location = new System.Drawing.Point(26, 393);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 33;
@@ -144,14 +145,14 @@
             // 
             // txtJenisEvent
             // 
-            this.txtJenisEvent.Location = new System.Drawing.Point(26, 189);
+            this.txtJenisEvent.Location = new System.Drawing.Point(26, 181);
             this.txtJenisEvent.Name = "txtJenisEvent";
             this.txtJenisEvent.Size = new System.Drawing.Size(170, 22);
             this.txtJenisEvent.TabIndex = 30;
             // 
             // txtEvent
             // 
-            this.txtEvent.Location = new System.Drawing.Point(26, 143);
+            this.txtEvent.Location = new System.Drawing.Point(26, 135);
             this.txtEvent.Name = "txtEvent";
             this.txtEvent.Size = new System.Drawing.Size(170, 22);
             this.txtEvent.TabIndex = 29;
@@ -159,7 +160,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 304);
+            this.label3.Location = new System.Drawing.Point(25, 296);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 16);
             this.label3.TabIndex = 27;
@@ -168,7 +169,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 170);
+            this.label2.Location = new System.Drawing.Point(23, 162);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 16);
             this.label2.TabIndex = 26;
@@ -177,7 +178,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 124);
+            this.label1.Location = new System.Drawing.Point(23, 116);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 16);
             this.label1.TabIndex = 25;
@@ -185,7 +186,7 @@
             // 
             // txtKeterangan
             // 
-            this.txtKeterangan.Location = new System.Drawing.Point(26, 236);
+            this.txtKeterangan.Location = new System.Drawing.Point(26, 228);
             this.txtKeterangan.Name = "txtKeterangan";
             this.txtKeterangan.Size = new System.Drawing.Size(170, 22);
             this.txtKeterangan.TabIndex = 41;
@@ -193,7 +194,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(23, 217);
+            this.label5.Location = new System.Drawing.Point(23, 209);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(76, 16);
             this.label5.TabIndex = 40;
@@ -201,7 +202,7 @@
             // 
             // txtPeran
             // 
-            this.txtPeran.Location = new System.Drawing.Point(26, 279);
+            this.txtPeran.Location = new System.Drawing.Point(26, 271);
             this.txtPeran.Name = "txtPeran";
             this.txtPeran.Size = new System.Drawing.Size(170, 22);
             this.txtPeran.TabIndex = 43;
@@ -209,7 +210,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(23, 260);
+            this.label7.Location = new System.Drawing.Point(23, 252);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(109, 16);
             this.label7.TabIndex = 42;
@@ -217,14 +218,14 @@
             // 
             // dtpTanggal
             // 
-            this.dtpTanggal.Location = new System.Drawing.Point(26, 323);
+            this.dtpTanggal.Location = new System.Drawing.Point(26, 315);
             this.dtpTanggal.Name = "dtpTanggal";
             this.dtpTanggal.Size = new System.Drawing.Size(170, 22);
             this.dtpTanggal.TabIndex = 44;
             // 
             // btnReport
             // 
-            this.btnReport.Location = new System.Drawing.Point(77, 413);
+            this.btnReport.Location = new System.Drawing.Point(121, 426);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(75, 23);
             this.btnReport.TabIndex = 45;
@@ -232,12 +233,23 @@
             this.btnReport.UseVisualStyleBackColor = true;
             this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
+            // btnImport
+            // 
+            this.btnImport.Location = new System.Drawing.Point(26, 426);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(75, 23);
+            this.btnImport.TabIndex = 46;
+            this.btnImport.Text = "Import";
+            this.btnImport.UseVisualStyleBackColor = true;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
+            // 
             // FormEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Crimson;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 483);
+            this.Controls.Add(this.btnImport);
             this.Controls.Add(this.btnReport);
             this.Controls.Add(this.dtpTanggal);
             this.Controls.Add(this.txtPeran);
@@ -290,5 +302,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dtpTanggal;
         private System.Windows.Forms.Button btnReport;
+        private System.Windows.Forms.Button btnImport;
     }
 }
