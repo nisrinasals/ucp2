@@ -219,7 +219,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Crimson;
-            this.ClientSize = new System.Drawing.Size(840, 470);
+            this.ClientSize = new System.Drawing.Size(840, 479);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnRefresh);
