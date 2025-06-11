@@ -133,7 +133,7 @@
             // 
             // dgvEvent
             // 
-            this.dgvEvent.BackgroundColor = System.Drawing.Color.IndianRed;
+            this.dgvEvent.BackgroundColor = System.Drawing.Color.Tan;
             this.dgvEvent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEvent.Location = new System.Drawing.Point(241, 69);
             this.dgvEvent.Name = "dgvEvent";
@@ -247,7 +247,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Crimson;
+            this.BackColor = System.Drawing.Color.Bisque;
             this.ClientSize = new System.Drawing.Size(800, 483);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.btnReport);

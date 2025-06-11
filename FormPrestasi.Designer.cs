@@ -99,7 +99,7 @@
             // 
             // dgvPrestasi
             // 
-            this.dgvPrestasi.BackgroundColor = System.Drawing.Color.IndianRed;
+            this.dgvPrestasi.BackgroundColor = System.Drawing.Color.Tan;
             this.dgvPrestasi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPrestasi.Location = new System.Drawing.Point(243, 69);
             this.dgvPrestasi.Name = "dgvPrestasi";
@@ -189,7 +189,7 @@
             // BtnImport
             // 
             this.BtnImport.Location = new System.Drawing.Point(31, 399);
-            this.BtnImport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnImport.Margin = new System.Windows.Forms.Padding(2);
             this.BtnImport.Name = "BtnImport";
             this.BtnImport.Size = new System.Drawing.Size(72, 29);
             this.BtnImport.TabIndex = 25;
@@ -201,7 +201,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Crimson;
+            this.BackColor = System.Drawing.Color.Bisque;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.BtnImport);
             this.Controls.Add(this.txtNIM);

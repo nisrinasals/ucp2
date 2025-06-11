@@ -35,7 +35,7 @@
             // 
             // dgvPreview
             // 
-            this.dgvPreview.BackgroundColor = System.Drawing.Color.IndianRed;
+            this.dgvPreview.BackgroundColor = System.Drawing.Color.Tan;
             this.dgvPreview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPreview.Location = new System.Drawing.Point(26, 12);
             this.dgvPreview.Name = "dgvPreview";
@@ -59,7 +59,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Red;
+            this.BackColor = System.Drawing.Color.Bisque;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.dgvPreview);

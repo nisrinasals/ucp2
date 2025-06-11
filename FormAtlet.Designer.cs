@@ -133,13 +133,13 @@
             // 
             // dgvAtlet
             // 
-            this.dgvAtlet.BackgroundColor = System.Drawing.Color.IndianRed;
+            this.dgvAtlet.BackgroundColor = System.Drawing.Color.Tan;
             this.dgvAtlet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAtlet.Location = new System.Drawing.Point(231, 69);
             this.dgvAtlet.Name = "dgvAtlet";
             this.dgvAtlet.RowHeadersWidth = 51;
             this.dgvAtlet.RowTemplate.Height = 24;
-            this.dgvAtlet.Size = new System.Drawing.Size(539, 358);
+            this.dgvAtlet.Size = new System.Drawing.Size(574, 383);
             this.dgvAtlet.TabIndex = 10;
             this.dgvAtlet.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAtlet_CellContentClick);
             // 
@@ -218,7 +218,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Crimson;
+            this.BackColor = System.Drawing.Color.Bisque;
             this.ClientSize = new System.Drawing.Size(840, 479);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.btnBack);

@@ -80,7 +80,7 @@
             this.labelMenu.AutoSize = true;
             this.labelMenu.BackColor = System.Drawing.Color.Transparent;
             this.labelMenu.Font = new System.Drawing.Font("Berlin Sans FB Demi", 40.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMenu.ForeColor = System.Drawing.SystemColors.Control;
+            this.labelMenu.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.labelMenu.Location = new System.Drawing.Point(301, 66);
             this.labelMenu.Name = "labelMenu";
             this.labelMenu.Size = new System.Drawing.Size(221, 76);
@@ -91,7 +91,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Crimson;
+            this.BackColor = System.Drawing.Color.Bisque;
             this.ClientSize = new System.Drawing.Size(814, 459);
             this.Controls.Add(this.labelMenu);
             this.Controls.Add(this.btnEvent);
