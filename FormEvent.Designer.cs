@@ -139,7 +139,7 @@
             this.dgvEvent.Name = "dgvEvent";
             this.dgvEvent.RowHeadersWidth = 51;
             this.dgvEvent.RowTemplate.Height = 24;
-            this.dgvEvent.Size = new System.Drawing.Size(527, 359);
+            this.dgvEvent.Size = new System.Drawing.Size(527, 380);
             this.dgvEvent.TabIndex = 32;
             this.dgvEvent.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEvent_CellContentClick);
             // 

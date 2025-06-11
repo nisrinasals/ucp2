@@ -159,7 +159,7 @@ namespace ucp2
                 return;
             }
 
-            if (selectedDate < DateTime.Today.AddYears(-10))
+            if (selectedDate < DateTime.Today.AddYears(-15))
             {
                 MessageBox.Show("Tanggal event terlalu jauh di masa lalu.", "Validasi Tanggal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
