@@ -324,7 +324,13 @@ namespace ucp2
 
         private void BtnImport_Click_1(object sender, EventArgs e)
         {
-
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Excel Files|*.xlsx;*.xlsm";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+                PreviewData(filePath);
+            }
         }
     }
 }

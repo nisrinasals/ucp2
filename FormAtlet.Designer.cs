@@ -206,7 +206,7 @@
             // 
             // btnImport
             // 
-            this.btnImport.Location = new System.Drawing.Point(34, 435);
+            this.btnImport.Location = new System.Drawing.Point(49, 429);
             this.btnImport.Name = "btnImport";
             this.btnImport.Size = new System.Drawing.Size(75, 23);
             this.btnImport.TabIndex = 17;
