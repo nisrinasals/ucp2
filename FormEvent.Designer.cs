@@ -38,7 +38,6 @@
             this.btnHapus = new System.Windows.Forms.Button();
             this.btnTambah = new System.Windows.Forms.Button();
             this.dgvEvent = new System.Windows.Forms.DataGridView();
-            this.txtJenisEvent = new System.Windows.Forms.TextBox();
             this.txtEvent = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,6 +49,7 @@
             this.dtpTanggal = new System.Windows.Forms.DateTimePicker();
             this.btnReport = new System.Windows.Forms.Button();
             this.btnImport = new System.Windows.Forms.Button();
+            this.cB_JenisEvent = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEvent)).BeginInit();
             this.SuspendLayout();
@@ -142,13 +142,6 @@
             this.dgvEvent.Size = new System.Drawing.Size(527, 359);
             this.dgvEvent.TabIndex = 32;
             this.dgvEvent.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEvent_CellContentClick);
-            // 
-            // txtJenisEvent
-            // 
-            this.txtJenisEvent.Location = new System.Drawing.Point(26, 181);
-            this.txtJenisEvent.Name = "txtJenisEvent";
-            this.txtJenisEvent.Size = new System.Drawing.Size(170, 22);
-            this.txtJenisEvent.TabIndex = 30;
             // 
             // txtEvent
             // 
@@ -243,12 +236,26 @@
             this.btnImport.UseVisualStyleBackColor = true;
             this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
+            // cB_JenisEvent
+            // 
+            this.cB_JenisEvent.FormattingEnabled = true;
+            this.cB_JenisEvent.Items.AddRange(new object[] {
+            "Kompetisi",
+            "Pelatihan",
+            "Sosial",
+            "Lainnya"});
+            this.cB_JenisEvent.Location = new System.Drawing.Point(28, 182);
+            this.cB_JenisEvent.Name = "cB_JenisEvent";
+            this.cB_JenisEvent.Size = new System.Drawing.Size(167, 24);
+            this.cB_JenisEvent.TabIndex = 47;
+            // 
             // FormEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Bisque;
             this.ClientSize = new System.Drawing.Size(800, 483);
+            this.Controls.Add(this.cB_JenisEvent);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.btnReport);
             this.Controls.Add(this.dtpTanggal);
@@ -265,7 +272,6 @@
             this.Controls.Add(this.btnHapus);
             this.Controls.Add(this.btnTambah);
             this.Controls.Add(this.dgvEvent);
-            this.Controls.Add(this.txtJenisEvent);
             this.Controls.Add(this.txtEvent);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -291,7 +297,6 @@
         private System.Windows.Forms.Button btnHapus;
         private System.Windows.Forms.Button btnTambah;
         private System.Windows.Forms.DataGridView dgvEvent;
-        private System.Windows.Forms.TextBox txtJenisEvent;
         private System.Windows.Forms.TextBox txtEvent;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -303,5 +308,6 @@
         private System.Windows.Forms.DateTimePicker dtpTanggal;
         private System.Windows.Forms.Button btnReport;
         private System.Windows.Forms.Button btnImport;
+        private System.Windows.Forms.ComboBox cB_JenisEvent;
     }
 }

@@ -34,7 +34,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.dgvKeuangan = new System.Windows.Forms.DataGridView();
             this.txtJumlah = new System.Windows.Forms.TextBox();
-            this.txtJenis = new System.Windows.Forms.TextBox();
             this.txtKeterangan = new System.Windows.Forms.TextBox();
             this.txtNim = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -44,13 +43,14 @@
             this.btnBack = new System.Windows.Forms.PictureBox();
             this.btnReport = new System.Windows.Forms.Button();
             this.btnImport = new System.Windows.Forms.Button();
+            this.cB_JenisTransaksi = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKeuangan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
             this.SuspendLayout();
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(190, 348);
+            this.btnRefresh.Location = new System.Drawing.Point(155, 319);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(75, 23);
             this.btnRefresh.TabIndex = 31;
@@ -60,7 +60,7 @@
             // 
             // btnTambah
             // 
-            this.btnTambah.Location = new System.Drawing.Point(62, 348);
+            this.btnTambah.Location = new System.Drawing.Point(52, 319);
             this.btnTambah.Name = "btnTambah";
             this.btnTambah.Size = new System.Drawing.Size(75, 23);
             this.btnTambah.TabIndex = 28;
@@ -72,7 +72,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(54, 42);
+            this.label6.Location = new System.Drawing.Point(54, 33);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(718, 32);
             this.label6.TabIndex = 27;
@@ -86,7 +86,7 @@
             this.dgvKeuangan.Name = "dgvKeuangan";
             this.dgvKeuangan.RowHeadersWidth = 51;
             this.dgvKeuangan.RowTemplate.Height = 24;
-            this.dgvKeuangan.Size = new System.Drawing.Size(455, 341);
+            this.dgvKeuangan.Size = new System.Drawing.Size(465, 341);
             this.dgvKeuangan.TabIndex = 26;
             this.dgvKeuangan.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKeuangan_CellContentClick);
             // 
@@ -94,28 +94,21 @@
             // 
             this.txtJumlah.Location = new System.Drawing.Point(38, 250);
             this.txtJumlah.Name = "txtJumlah";
-            this.txtJumlah.Size = new System.Drawing.Size(263, 22);
+            this.txtJumlah.Size = new System.Drawing.Size(248, 22);
             this.txtJumlah.TabIndex = 23;
-            // 
-            // txtJenis
-            // 
-            this.txtJenis.Location = new System.Drawing.Point(38, 201);
-            this.txtJenis.Name = "txtJenis";
-            this.txtJenis.Size = new System.Drawing.Size(263, 22);
-            this.txtJenis.TabIndex = 22;
             // 
             // txtKeterangan
             // 
             this.txtKeterangan.Location = new System.Drawing.Point(38, 149);
             this.txtKeterangan.Name = "txtKeterangan";
-            this.txtKeterangan.Size = new System.Drawing.Size(259, 22);
+            this.txtKeterangan.Size = new System.Drawing.Size(248, 22);
             this.txtKeterangan.TabIndex = 21;
             // 
             // txtNim
             // 
             this.txtNim.Location = new System.Drawing.Point(38, 99);
             this.txtNim.Name = "txtNim";
-            this.txtNim.Size = new System.Drawing.Size(257, 22);
+            this.txtNim.Size = new System.Drawing.Size(248, 22);
             this.txtNim.TabIndex = 20;
             // 
             // label4
@@ -167,7 +160,7 @@
             // 
             // btnReport
             // 
-            this.btnReport.Location = new System.Drawing.Point(190, 395);
+            this.btnReport.Location = new System.Drawing.Point(155, 366);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(75, 23);
             this.btnReport.TabIndex = 34;
@@ -177,8 +170,8 @@
             // 
             // btnImport
             // 
-            this.btnImport.Location = new System.Drawing.Point(62, 396);
-            this.btnImport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnImport.Location = new System.Drawing.Point(52, 367);
+            this.btnImport.Margin = new System.Windows.Forms.Padding(2);
             this.btnImport.Name = "btnImport";
             this.btnImport.Size = new System.Drawing.Size(75, 22);
             this.btnImport.TabIndex = 35;
@@ -186,12 +179,24 @@
             this.btnImport.UseVisualStyleBackColor = true;
             this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
+            // cB_JenisTransaksi
+            // 
+            this.cB_JenisTransaksi.FormattingEnabled = true;
+            this.cB_JenisTransaksi.Items.AddRange(new object[] {
+            "Pemasukan",
+            "Pengeluaran"});
+            this.cB_JenisTransaksi.Location = new System.Drawing.Point(38, 204);
+            this.cB_JenisTransaksi.Name = "cB_JenisTransaksi";
+            this.cB_JenisTransaksi.Size = new System.Drawing.Size(248, 24);
+            this.cB_JenisTransaksi.TabIndex = 36;
+            // 
             // FormKeuangan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Bisque;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cB_JenisTransaksi);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.btnReport);
             this.Controls.Add(this.btnBack);
@@ -200,7 +205,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dgvKeuangan);
             this.Controls.Add(this.txtJumlah);
-            this.Controls.Add(this.txtJenis);
             this.Controls.Add(this.txtKeterangan);
             this.Controls.Add(this.txtNim);
             this.Controls.Add(this.label4);
@@ -224,7 +228,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView dgvKeuangan;
         private System.Windows.Forms.TextBox txtJumlah;
-        private System.Windows.Forms.TextBox txtJenis;
         private System.Windows.Forms.TextBox txtKeterangan;
         private System.Windows.Forms.TextBox txtNim;
         private System.Windows.Forms.Label label4;
@@ -234,5 +237,6 @@
         private System.Windows.Forms.PictureBox btnBack;
         private System.Windows.Forms.Button btnReport;
         private System.Windows.Forms.Button btnImport;
+        private System.Windows.Forms.ComboBox cB_JenisTransaksi;
     }
 }

@@ -25,6 +25,10 @@ namespace ucp2
         public FormKeuangan()
         {
             InitializeComponent();
+            cB_JenisTransaksi.Items.AddRange(new object[] {
+                "Pemasukan",
+                "Pengeluaran"
+            });
         }
         //aku nyoba
         private void FormKeuangan_Load(object sender, EventArgs e)
@@ -115,11 +119,11 @@ namespace ucp2
         private void ClearForm()
         {
             txtNim.Clear();
-            txtJenis.Clear();
+            cB_JenisTransaksi.SelectedIndex = -1;
+            cB_JenisTransaksi.Text = "";
             txtKeterangan.Clear();
             txtJumlah.Clear();
 
-            //Fokus kembali ke NIM user siap memasukkan data baru
             txtNim.Focus();
         }
 
@@ -127,7 +131,7 @@ namespace ucp2
         {
             string nimInput = txtNim.Text.Trim();
             string keterangan = txtKeterangan.Text.Trim();
-            string jenisTransaksi = txtJenis.Text.Trim();
+            string jenisTransaksi = cB_JenisTransaksi.Text.Trim();
             decimal jumlah;
 
             if (string.IsNullOrWhiteSpace(keterangan) || 
@@ -205,7 +209,7 @@ namespace ucp2
 
                     txtNim.Text = row.Cells["NIM Atlet"].Value?.ToString() ?? string.Empty; 
                     txtKeterangan.Text = row.Cells["Keterangan"].Value?.ToString() ?? string.Empty;
-                    txtJenis.Text = row.Cells["Jenis Transaksi"].Value?.ToString() ?? string.Empty; 
+                    cB_JenisTransaksi.Text = row.Cells["Jenis Transaksi"].Value?.ToString() ?? string.Empty;
                     txtJumlah.Text = row.Cells["Jumlah"].Value?.ToString() ?? string.Empty;
 
                 }

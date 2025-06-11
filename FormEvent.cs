@@ -25,6 +25,12 @@ namespace ucp2
         public FormEvent()
         {
             InitializeComponent();
+            cB_JenisEvent.Items.AddRange(new object[] {
+                "Kompetisi",
+                "Pelatihan",
+                "Sosial",
+                "Lainnya"
+            });
         }
 
         private void FormEvent_Load(object sender, EventArgs e)
@@ -119,7 +125,8 @@ namespace ucp2
         {
             txtNIM.Clear();
             txtEvent.Clear();
-            txtJenisEvent.Clear();
+            cB_JenisEvent.SelectedIndex = -1; // Mengosongkan pilihan ComboBox
+            cB_JenisEvent.Text = "";
             txtKeterangan.Clear();
             txtPeran.Clear();
 
@@ -130,13 +137,13 @@ namespace ucp2
         {
             string nimAtlet = txtNIM.Text.Trim();
             string namaEvent = txtEvent.Text.Trim();
-            string jenisEvent = txtJenisEvent.Text.Trim();
+            string jenisEvent = cB_JenisEvent.Text.Trim();
             string keterangan = txtKeterangan.Text.Trim();
             string peran = txtPeran.Text.Trim();
 
             if (string.IsNullOrWhiteSpace(txtNIM.Text) ||
                 string.IsNullOrWhiteSpace(txtEvent.Text) ||
-                string.IsNullOrWhiteSpace(txtJenisEvent.Text) ||
+                string.IsNullOrWhiteSpace(jenisEvent) ||
                 string.IsNullOrWhiteSpace(txtKeterangan.Text) ||
                 string.IsNullOrWhiteSpace(txtPeran.Text))
             {
@@ -152,7 +159,7 @@ namespace ucp2
                 return;
             }
 
-            if (selectedDate < DateTime.Today.AddYears(-100))
+            if (selectedDate < DateTime.Today.AddYears(-10))
             {
                 MessageBox.Show("Tanggal event terlalu jauh di masa lalu.", "Validasi Tanggal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -273,7 +280,7 @@ namespace ucp2
                     }
 
                     txtEvent.Text = row.Cells["Nama Event"].Value?.ToString();
-                    txtJenisEvent.Text = row.Cells["Jenis Event"].Value?.ToString();
+                    cB_JenisEvent.Text = row.Cells["Jenis Event"].Value?.ToString();
                     txtKeterangan.Text = row.Cells["Keterangan"].Value?.ToString(); 
 
                     if (row.Cells["Tanggal"].Value != null && DateTime.TryParse(row.Cells["Tanggal"].Value.ToString(), out DateTime eventDate))
@@ -305,7 +312,7 @@ namespace ucp2
             }
 
             string namaEvent = txtEvent.Text.Trim();
-            string jenisEvent = txtJenisEvent.Text.Trim();
+            string jenisEvent = cB_JenisEvent.Text.Trim();
             string keteranganEvent = txtKeterangan.Text.Trim();
             DateTime selectedEventDate = dtpTanggal.Value;
             string nimAtlet = txtNIM.Text.Trim();
