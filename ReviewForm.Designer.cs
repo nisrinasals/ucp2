@@ -36,17 +36,17 @@
             // dgvPreview
             // 
             this.dgvPreview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPreview.Location = new System.Drawing.Point(57, 30);
+            this.dgvPreview.Location = new System.Drawing.Point(26, 12);
             this.dgvPreview.Name = "dgvPreview";
             this.dgvPreview.RowHeadersWidth = 51;
             this.dgvPreview.RowTemplate.Height = 24;
-            this.dgvPreview.Size = new System.Drawing.Size(699, 294);
+            this.dgvPreview.Size = new System.Drawing.Size(750, 361);
             this.dgvPreview.TabIndex = 0;
             this.dgvPreview.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPreview_Click);
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(408, 382);
+            this.btnOk.Location = new System.Drawing.Point(355, 397);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(90, 31);
             this.btnOk.TabIndex = 1;
