@@ -13,7 +13,7 @@ namespace ucp2
 {
     public partial class ReviewForm: Form
     {
-        private string connectionString = "Server=LAPTOP-I0H7METT\\CHESTAYURCEL;Database=keuangan2;Integrated Security=True";
+        private string connectionString = "Server=SAS\\SQLEXPRESS;Database=keuangan2;Integrated Security=True";
 
         public ReviewForm(DataTable data)
 

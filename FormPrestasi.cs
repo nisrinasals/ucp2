@@ -12,7 +12,7 @@ namespace ucp2
 {
     public partial class FormPrestasi : Form
     {
-        private readonly string connectionString = "Server=LAPTOP-I0H7METT\\CHESTAYURCEL;Database=keuangan2;Integrated Security=True";
+        private readonly string connectionString = "Server=SAS\\SQLEXPRESS;Database=keuangan2;Integrated Security=True";
 
         private int _selectedRelasiId = -1;
         private int _selectedPrestasiDefinitionId = -1;

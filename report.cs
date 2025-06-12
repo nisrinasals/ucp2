@@ -27,7 +27,7 @@ namespace ucp2
 
         private void SetupReportViewer()
         {
-            string connectionString = "Server=LAPTOP-I0H7METT\\CHESTAYURCEL;Database=keuangan2;Integrated Security=True";
+            string connectionString = "Server=SAS\\SQLEXPRESS;Database=keuangan2;Integrated Security=True";
 
             string query = @"
                 SELECT
