@@ -37,7 +37,7 @@
             // 
             // btnAtlet
             // 
-            this.btnAtlet.Location = new System.Drawing.Point(188, 199);
+            this.btnAtlet.Location = new System.Drawing.Point(188, 208);
             this.btnAtlet.Name = "btnAtlet";
             this.btnAtlet.Size = new System.Drawing.Size(202, 49);
             this.btnAtlet.TabIndex = 0;
@@ -47,7 +47,7 @@
             // 
             // btnPrestasi
             // 
-            this.btnPrestasi.Location = new System.Drawing.Point(434, 199);
+            this.btnPrestasi.Location = new System.Drawing.Point(434, 208);
             this.btnPrestasi.Name = "btnPrestasi";
             this.btnPrestasi.Size = new System.Drawing.Size(202, 49);
             this.btnPrestasi.TabIndex = 1;
@@ -57,7 +57,7 @@
             // 
             // btnKeuangan
             // 
-            this.btnKeuangan.Location = new System.Drawing.Point(188, 290);
+            this.btnKeuangan.Location = new System.Drawing.Point(188, 299);
             this.btnKeuangan.Name = "btnKeuangan";
             this.btnKeuangan.Size = new System.Drawing.Size(202, 49);
             this.btnKeuangan.TabIndex = 2;
@@ -67,7 +67,7 @@
             // 
             // btnEvent
             // 
-            this.btnEvent.Location = new System.Drawing.Point(434, 290);
+            this.btnEvent.Location = new System.Drawing.Point(434, 299);
             this.btnEvent.Name = "btnEvent";
             this.btnEvent.Size = new System.Drawing.Size(202, 49);
             this.btnEvent.TabIndex = 3;
@@ -79,13 +79,13 @@
             // 
             this.labelMenu.AutoSize = true;
             this.labelMenu.BackColor = System.Drawing.Color.Transparent;
-            this.labelMenu.Font = new System.Drawing.Font("Berlin Sans FB Demi", 40.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMenu.Font = new System.Drawing.Font("Geoform", 40.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMenu.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelMenu.Location = new System.Drawing.Point(301, 66);
+            this.labelMenu.Location = new System.Drawing.Point(165, 77);
             this.labelMenu.Name = "labelMenu";
-            this.labelMenu.Size = new System.Drawing.Size(221, 76);
+            this.labelMenu.Size = new System.Drawing.Size(499, 84);
             this.labelMenu.TabIndex = 4;
-            this.labelMenu.Text = "MENU";
+            this.labelMenu.Text = "MENU UTAMA";
             // 
             // FormMenu
             // 

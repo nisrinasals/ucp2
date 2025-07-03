@@ -58,7 +58,7 @@
             // 
             this.txtNIM.Location = new System.Drawing.Point(26, 89);
             this.txtNIM.Name = "txtNIM";
-            this.txtNIM.Size = new System.Drawing.Size(170, 22);
+            this.txtNIM.Size = new System.Drawing.Size(197, 22);
             this.txtNIM.TabIndex = 28;
             // 
             // label4
@@ -84,18 +84,18 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(120, 20);
+            this.label6.Font = new System.Drawing.Font("Geoform", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(208, 24);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(578, 32);
+            this.label6.Size = new System.Drawing.Size(673, 43);
             this.label6.TabIndex = 38;
             this.label6.Text = "DATA EVENT ATLET FAKULTAS TEKNIK";
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(120, 392);
+            this.btnRefresh.Location = new System.Drawing.Point(134, 392);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.Size = new System.Drawing.Size(88, 23);
             this.btnRefresh.TabIndex = 34;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
@@ -105,7 +105,7 @@
             // 
             this.btnUpdate.Location = new System.Drawing.Point(26, 393);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.Size = new System.Drawing.Size(90, 23);
             this.btnUpdate.TabIndex = 33;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -113,9 +113,9 @@
             // 
             // btnHapus
             // 
-            this.btnHapus.Location = new System.Drawing.Point(121, 358);
+            this.btnHapus.Location = new System.Drawing.Point(134, 358);
             this.btnHapus.Name = "btnHapus";
-            this.btnHapus.Size = new System.Drawing.Size(75, 23);
+            this.btnHapus.Size = new System.Drawing.Size(89, 23);
             this.btnHapus.TabIndex = 35;
             this.btnHapus.Text = "Hapus";
             this.btnHapus.UseVisualStyleBackColor = true;
@@ -125,7 +125,7 @@
             // 
             this.btnTambah.Location = new System.Drawing.Point(26, 358);
             this.btnTambah.Name = "btnTambah";
-            this.btnTambah.Size = new System.Drawing.Size(75, 23);
+            this.btnTambah.Size = new System.Drawing.Size(90, 23);
             this.btnTambah.TabIndex = 36;
             this.btnTambah.Text = "Tambah";
             this.btnTambah.UseVisualStyleBackColor = true;
@@ -135,11 +135,11 @@
             // 
             this.dgvEvent.BackgroundColor = System.Drawing.Color.Tan;
             this.dgvEvent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEvent.Location = new System.Drawing.Point(241, 69);
+            this.dgvEvent.Location = new System.Drawing.Point(244, 79);
             this.dgvEvent.Name = "dgvEvent";
             this.dgvEvent.RowHeadersWidth = 51;
             this.dgvEvent.RowTemplate.Height = 24;
-            this.dgvEvent.Size = new System.Drawing.Size(527, 380);
+            this.dgvEvent.Size = new System.Drawing.Size(637, 392);
             this.dgvEvent.TabIndex = 32;
             this.dgvEvent.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEvent_CellContentClick);
             // 
@@ -147,7 +147,7 @@
             // 
             this.txtEvent.Location = new System.Drawing.Point(26, 135);
             this.txtEvent.Name = "txtEvent";
-            this.txtEvent.Size = new System.Drawing.Size(170, 22);
+            this.txtEvent.Size = new System.Drawing.Size(197, 22);
             this.txtEvent.TabIndex = 29;
             // 
             // label3
@@ -181,7 +181,7 @@
             // 
             this.txtKeterangan.Location = new System.Drawing.Point(26, 228);
             this.txtKeterangan.Name = "txtKeterangan";
-            this.txtKeterangan.Size = new System.Drawing.Size(170, 22);
+            this.txtKeterangan.Size = new System.Drawing.Size(197, 22);
             this.txtKeterangan.TabIndex = 41;
             // 
             // label5
@@ -197,7 +197,7 @@
             // 
             this.txtPeran.Location = new System.Drawing.Point(26, 271);
             this.txtPeran.Name = "txtPeran";
-            this.txtPeran.Size = new System.Drawing.Size(170, 22);
+            this.txtPeran.Size = new System.Drawing.Size(197, 22);
             this.txtPeran.TabIndex = 43;
             // 
             // label7
@@ -213,14 +213,14 @@
             // 
             this.dtpTanggal.Location = new System.Drawing.Point(26, 315);
             this.dtpTanggal.Name = "dtpTanggal";
-            this.dtpTanggal.Size = new System.Drawing.Size(170, 22);
+            this.dtpTanggal.Size = new System.Drawing.Size(197, 22);
             this.dtpTanggal.TabIndex = 44;
             // 
             // btnReport
             // 
-            this.btnReport.Location = new System.Drawing.Point(121, 426);
+            this.btnReport.Location = new System.Drawing.Point(134, 426);
             this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(75, 23);
+            this.btnReport.Size = new System.Drawing.Size(89, 23);
             this.btnReport.TabIndex = 45;
             this.btnReport.Text = "Report";
             this.btnReport.UseVisualStyleBackColor = true;
@@ -230,7 +230,7 @@
             // 
             this.btnImport.Location = new System.Drawing.Point(26, 426);
             this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(75, 23);
+            this.btnImport.Size = new System.Drawing.Size(90, 23);
             this.btnImport.TabIndex = 46;
             this.btnImport.Text = "Import";
             this.btnImport.UseVisualStyleBackColor = true;
@@ -246,7 +246,7 @@
             "Lainnya"});
             this.cB_JenisEvent.Location = new System.Drawing.Point(28, 182);
             this.cB_JenisEvent.Name = "cB_JenisEvent";
-            this.cB_JenisEvent.Size = new System.Drawing.Size(167, 24);
+            this.cB_JenisEvent.Size = new System.Drawing.Size(194, 24);
             this.cB_JenisEvent.TabIndex = 47;
             // 
             // FormEvent
@@ -254,7 +254,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Bisque;
-            this.ClientSize = new System.Drawing.Size(800, 483);
+            this.ClientSize = new System.Drawing.Size(893, 483);
             this.Controls.Add(this.cB_JenisEvent);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.btnReport);

@@ -139,17 +139,17 @@
             this.dgvAtlet.Name = "dgvAtlet";
             this.dgvAtlet.RowHeadersWidth = 51;
             this.dgvAtlet.RowTemplate.Height = 24;
-            this.dgvAtlet.Size = new System.Drawing.Size(574, 383);
+            this.dgvAtlet.Size = new System.Drawing.Size(596, 398);
             this.dgvAtlet.TabIndex = 10;
             this.dgvAtlet.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAtlet_CellContentClick);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(141, 25);
+            this.label6.Font = new System.Drawing.Font("Geoform", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(245, 19);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(544, 32);
+            this.label6.Size = new System.Drawing.Size(557, 38);
             this.label6.TabIndex = 11;
             this.label6.Text = "DATA ATLET FAKULTAS TEKNIK UMY";
             // 
@@ -219,7 +219,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Bisque;
-            this.ClientSize = new System.Drawing.Size(840, 479);
+            this.ClientSize = new System.Drawing.Size(854, 492);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnRefresh);
