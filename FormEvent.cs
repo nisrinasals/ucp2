@@ -147,7 +147,7 @@ namespace ucp2
 
             DateTime selectedDate = dtpTanggal.Value;
 
-            if (selectedDate > DateTime.Today)
+            if (selectedDate.Date > DateTime.Today)
             {
                 MessageBox.Show("Tanggal event tidak boleh di masa depan.", "Validasi Tanggal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
