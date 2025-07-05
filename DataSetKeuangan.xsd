@@ -9,12 +9,13 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="keuangan2ConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="keuangan2ConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT K.id_keuangan, K.nim, A.nama, K.jenis_transaksi, K.keterangan, K.jumlah, K.tanggal, K.saldo_total
+                    <CommandText>SELECT K.id_keuangan, K.nim, A.nama, K.jenis_transaksi, K.keterangan, K.jumlah, K.tanggal
 FROM     DataKeuangan AS K INNER JOIN
-                  Atlet AS A ON K.nim = A.nim</CommandText>
+                  Atlet AS A ON K.nim = A.nim
+ORDER BY K.tanggal DESC, K.id_keuangan DESC</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -28,7 +29,6 @@ FROM     DataKeuangan AS K INNER JOIN
               <Mapping SourceColumn="keterangan" DataSetColumn="keterangan" />
               <Mapping SourceColumn="jumlah" DataSetColumn="jumlah" />
               <Mapping SourceColumn="tanggal" DataSetColumn="tanggal" />
-              <Mapping SourceColumn="saldo_total" DataSetColumn="saldo_total" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -37,44 +37,43 @@ FROM     DataKeuangan AS K INNER JOIN
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="DataSetKeuangan" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="DataSetKeuangan" msprop:Generator_DataSetName="DataSetKeuangan">
+  <xs:element name="DataSetKeuangan" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DataSetKeuangan" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetKeuangan">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DataTable1" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_UserTableName="DataTable1">
+        <xs:element name="DataTable1" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="id_keuangan" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="id_keuangan" msprop:Generator_ColumnPropNameInTable="id_keuanganColumn" msprop:Generator_ColumnVarNameInTable="columnid_keuangan" msprop:Generator_UserColumnName="id_keuangan" type="xs:int" />
-              <xs:element name="nim" msprop:Generator_ColumnPropNameInRow="nim" msprop:Generator_ColumnPropNameInTable="nimColumn" msprop:Generator_ColumnVarNameInTable="columnnim" msprop:Generator_UserColumnName="nim" minOccurs="0">
+              <xs:element name="id_keuangan" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="id_keuangan" msprop:Generator_ColumnPropNameInTable="id_keuanganColumn" msprop:Generator_ColumnPropNameInRow="id_keuangan" msprop:Generator_ColumnVarNameInTable="columnid_keuangan" type="xs:int" />
+              <xs:element name="nim" msprop:Generator_UserColumnName="nim" msprop:Generator_ColumnPropNameInTable="nimColumn" msprop:Generator_ColumnPropNameInRow="nim" msprop:Generator_ColumnVarNameInTable="columnnim" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="11" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="nama" msprop:Generator_ColumnPropNameInRow="nama" msprop:Generator_ColumnPropNameInTable="namaColumn" msprop:Generator_ColumnVarNameInTable="columnnama" msprop:Generator_UserColumnName="nama">
+              <xs:element name="nama" msprop:Generator_UserColumnName="nama" msprop:Generator_ColumnPropNameInTable="namaColumn" msprop:Generator_ColumnPropNameInRow="nama" msprop:Generator_ColumnVarNameInTable="columnnama">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="jenis_transaksi" msprop:Generator_ColumnPropNameInRow="jenis_transaksi" msprop:Generator_ColumnPropNameInTable="jenis_transaksiColumn" msprop:Generator_ColumnVarNameInTable="columnjenis_transaksi" msprop:Generator_UserColumnName="jenis_transaksi">
+              <xs:element name="jenis_transaksi" msprop:Generator_UserColumnName="jenis_transaksi" msprop:Generator_ColumnPropNameInTable="jenis_transaksiColumn" msprop:Generator_ColumnPropNameInRow="jenis_transaksi" msprop:Generator_ColumnVarNameInTable="columnjenis_transaksi">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="keterangan" msprop:Generator_ColumnPropNameInRow="keterangan" msprop:Generator_ColumnPropNameInTable="keteranganColumn" msprop:Generator_ColumnVarNameInTable="columnketerangan" msprop:Generator_UserColumnName="keterangan">
+              <xs:element name="keterangan" msprop:Generator_UserColumnName="keterangan" msprop:Generator_ColumnPropNameInTable="keteranganColumn" msprop:Generator_ColumnPropNameInRow="keterangan" msprop:Generator_ColumnVarNameInTable="columnketerangan">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="jumlah" msprop:Generator_ColumnPropNameInRow="jumlah" msprop:Generator_ColumnPropNameInTable="jumlahColumn" msprop:Generator_ColumnVarNameInTable="columnjumlah" msprop:Generator_UserColumnName="jumlah" type="xs:decimal" />
-              <xs:element name="tanggal" msprop:Generator_ColumnPropNameInRow="tanggal" msprop:Generator_ColumnPropNameInTable="tanggalColumn" msprop:Generator_ColumnVarNameInTable="columntanggal" msprop:Generator_UserColumnName="tanggal" type="xs:dateTime" />
-              <xs:element name="saldo_total" msprop:Generator_ColumnPropNameInRow="saldo_total" msprop:Generator_ColumnPropNameInTable="saldo_totalColumn" msprop:Generator_ColumnVarNameInTable="columnsaldo_total" msprop:Generator_UserColumnName="saldo_total" type="xs:decimal" minOccurs="0" />
+              <xs:element name="jumlah" msprop:Generator_UserColumnName="jumlah" msprop:Generator_ColumnPropNameInTable="jumlahColumn" msprop:Generator_ColumnPropNameInRow="jumlah" msprop:Generator_ColumnVarNameInTable="columnjumlah" type="xs:decimal" />
+              <xs:element name="tanggal" msprop:Generator_UserColumnName="tanggal" msprop:Generator_ColumnPropNameInTable="tanggalColumn" msprop:Generator_ColumnPropNameInRow="tanggal" msprop:Generator_ColumnVarNameInTable="columntanggal" type="xs:dateTime" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

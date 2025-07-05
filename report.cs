@@ -37,8 +37,7 @@ namespace ucp2
                     K.jenis_transaksi,
                     K.keterangan,
                     K.jumlah,
-                    K.tanggal,
-                    K.saldo_total
+                    K.tanggal
                 FROM 
                     DataKeuangan K
                 INNER JOIN 

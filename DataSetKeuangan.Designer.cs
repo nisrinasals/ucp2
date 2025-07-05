@@ -293,8 +293,6 @@ namespace ucp2 {
             
             private global::System.Data.DataColumn columntanggal;
             
-            private global::System.Data.DataColumn columnsaldo_total;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public DataTable1DataTable() {
@@ -386,14 +384,6 @@ namespace ucp2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn saldo_totalColumn {
-                get {
-                    return this.columnsaldo_total;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -429,7 +419,7 @@ namespace ucp2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DataTable1Row AddDataTable1Row(string nim, string nama, string jenis_transaksi, string keterangan, decimal jumlah, System.DateTime tanggal, decimal saldo_total) {
+            public DataTable1Row AddDataTable1Row(string nim, string nama, string jenis_transaksi, string keterangan, decimal jumlah, System.DateTime tanggal) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -438,8 +428,7 @@ namespace ucp2 {
                         jenis_transaksi,
                         keterangan,
                         jumlah,
-                        tanggal,
-                        saldo_total};
+                        tanggal};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -476,7 +465,6 @@ namespace ucp2 {
                 this.columnketerangan = base.Columns["keterangan"];
                 this.columnjumlah = base.Columns["jumlah"];
                 this.columntanggal = base.Columns["tanggal"];
-                this.columnsaldo_total = base.Columns["saldo_total"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -496,8 +484,6 @@ namespace ucp2 {
                 base.Columns.Add(this.columnjumlah);
                 this.columntanggal = new global::System.Data.DataColumn("tanggal", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntanggal);
-                this.columnsaldo_total = new global::System.Data.DataColumn("saldo_total", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsaldo_total);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid_keuangan}, true));
                 this.columnid_keuangan.AutoIncrement = true;
@@ -739,22 +725,6 @@ namespace ucp2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal saldo_total {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableDataTable1.saldo_totalColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'saldo_total\' in table \'DataTable1\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDataTable1.saldo_totalColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsnimNull() {
                 return this.IsNull(this.tableDataTable1.nimColumn);
             }
@@ -763,18 +733,6 @@ namespace ucp2 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetnimNull() {
                 this[this.tableDataTable1.nimColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Issaldo_totalNull() {
-                return this.IsNull(this.tableDataTable1.saldo_totalColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setsaldo_totalNull() {
-                this[this.tableDataTable1.saldo_totalColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -944,7 +902,6 @@ namespace ucp2.DataSetKeuanganTableAdapters {
             tableMapping.ColumnMappings.Add("keterangan", "keterangan");
             tableMapping.ColumnMappings.Add("jumlah", "jumlah");
             tableMapping.ColumnMappings.Add("tanggal", "tanggal");
-            tableMapping.ColumnMappings.Add("saldo_total", "saldo_total");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -962,8 +919,8 @@ namespace ucp2.DataSetKeuanganTableAdapters {
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT K.id_keuangan, K.nim, A.nama, K.jenis_transaksi, K.keterangan, K.jumlah, K" +
-                ".tanggal, K.saldo_total\r\nFROM     DataKeuangan AS K INNER JOIN\r\n                " +
-                "  Atlet AS A ON K.nim = A.nim";
+                ".tanggal\r\nFROM     DataKeuangan AS K INNER JOIN\r\n                  Atlet AS A ON" +
+                " K.nim = A.nim\r\nORDER BY K.tanggal DESC, K.id_keuangan DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

@@ -44,6 +44,7 @@
             this.btnReport = new System.Windows.Forms.Button();
             this.btnImport = new System.Windows.Forms.Button();
             this.cB_JenisTransaksi = new System.Windows.Forms.ComboBox();
+            this.lblGlobalSaldo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKeuangan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
             this.SuspendLayout();
@@ -71,10 +72,10 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Geoform", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(137, 32);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(742, 38);
+            this.label6.Size = new System.Drawing.Size(772, 36);
             this.label6.TabIndex = 27;
             this.label6.Text = "DATA KEUANGAN ATLET FAKULTAS TEKNIK UMY";
             // 
@@ -190,12 +191,22 @@
             this.cB_JenisTransaksi.Size = new System.Drawing.Size(248, 24);
             this.cB_JenisTransaksi.TabIndex = 36;
             // 
+            // lblGlobalSaldo
+            // 
+            this.lblGlobalSaldo.AutoSize = true;
+            this.lblGlobalSaldo.Location = new System.Drawing.Point(32, 433);
+            this.lblGlobalSaldo.Name = "lblGlobalSaldo";
+            this.lblGlobalSaldo.Size = new System.Drawing.Size(83, 16);
+            this.lblGlobalSaldo.TabIndex = 37;
+            this.lblGlobalSaldo.Text = "Total Saldo: ";
+            // 
             // FormKeuangan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Bisque;
             this.ClientSize = new System.Drawing.Size(902, 477);
+            this.Controls.Add(this.lblGlobalSaldo);
             this.Controls.Add(this.cB_JenisTransaksi);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.btnReport);
@@ -238,5 +249,6 @@
         private System.Windows.Forms.Button btnReport;
         private System.Windows.Forms.Button btnImport;
         private System.Windows.Forms.ComboBox cB_JenisTransaksi;
+        private System.Windows.Forms.Label lblGlobalSaldo;
     }
 }

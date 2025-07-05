@@ -6,9 +6,11 @@ using System.Runtime.Caching;
 using Microsoft.Reporting.WebForms;
 using System.Collections.Generic;
 using System.IO;
-using System.IO;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
+using NPOI.SS.Formula.Functions;
+using static NPOI.HSSF.Util.HSSFColor;
+using System.Xml.Linq;
 namespace ucp2
 {
     public partial class FormKeuangan : Form
@@ -22,6 +24,8 @@ namespace ucp2
             AbsoluteExpiration = DateTimeOffset.Now.AddMinutes(5)
         };
         private const string CacheKey = "KeuanganData";
+        private const string GlobalSaldoCacheKey = "GlobalSaldo";
+
         public FormKeuangan()
         {
             InitializeComponent();
@@ -31,6 +35,7 @@ namespace ucp2
         {
             EnsureIndexes();
             LoadData();
+            DisplayGlobalSaldo();
         }
 
         private void LoadData()
@@ -56,12 +61,12 @@ namespace ucp2
                             K.jenis_transaksi AS [Jenis Transaksi],
                             K.keterangan AS [Keterangan],
                             K.jumlah AS [Jumlah],
-                            K.tanggal AS [Tanggal],
-                            K.saldo_total
+                            K.tanggal AS [Tanggal]
                         FROM 
                             DataKeuangan K
                         INNER JOIN 
-                            Atlet A ON K.nim = A.nim";
+                            Atlet A ON K.nim = A.nim
+                        ORDER BY K.tanggal DESC, K.id_keuangan DESC;";
 
                         var da = new SqlDataAdapter(query, conn);
                         da.Fill(dt);
@@ -123,6 +128,40 @@ namespace ucp2
             txtNim.Focus();
         }
 
+        private void DisplayGlobalSaldo()
+        {
+            decimal globalSaldo = 0;
+            if (_cache.Contains(GlobalSaldoCacheKey))
+            {
+                globalSaldo = (decimal)_cache.Get(GlobalSaldoCacheKey);
+            }
+            else
+            {
+                try
+                {
+                    using (var conn = new SqlConnection(connectionString))
+                    {
+                        conn.Open();
+                        var query = "SELECT saldo_total FROM GlobalKeuangan WHERE id_global = 1;";
+                        using (var cmd = new SqlCommand(query, conn))
+                        {
+                            var result = cmd.ExecuteScalar();
+                            if (result != DBNull.Value && result != null)
+                            {
+                                globalSaldo = Convert.ToDecimal(result);
+                                _cache.Add(GlobalSaldoCacheKey, globalSaldo, _policy);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error memuat saldo total global: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            lblGlobalSaldo.Text = $"Total Saldo: {globalSaldo:C}"; // :C untuk pemformatan mata uang
+        }
+
         private void btnTambah_Click(object sender, EventArgs e)
         {
             string nimInput = txtNim.Text.Trim();
@@ -175,8 +214,10 @@ namespace ucp2
 
                     MessageBox.Show("Transaksi berhasil disimpan!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    _cache.Remove(CacheKey); 
-                    LoadData(); 
+                    _cache.Remove(CacheKey);
+                    _cache.Remove(GlobalSaldoCacheKey);
+                    LoadData();
+                    DisplayGlobalSaldo();
                     ClearForm();             
                 }
                 catch (Exception ex)
@@ -190,7 +231,9 @@ namespace ucp2
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             _cache.Remove(CacheKey);
+            _cache.Remove(GlobalSaldoCacheKey);
             LoadData();
+            DisplayGlobalSaldo();
         }
 
         private void dgvKeuangan_CellContentClick(object sender, DataGridViewCellEventArgs e)
