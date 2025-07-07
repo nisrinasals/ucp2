@@ -159,6 +159,16 @@ namespace ucp2
                 return;
             }
 
+            if (!string.Equals(jenisEvent, "Kompetisi", StringComparison.OrdinalIgnoreCase) &&
+                !string.Equals(jenisEvent, "Pelatihan", StringComparison.OrdinalIgnoreCase) &&
+                !string.Equals(jenisEvent, "Sosial", StringComparison.OrdinalIgnoreCase) &&
+                !string.Equals(jenisEvent, "Lainnya", StringComparison.OrdinalIgnoreCase))
+
+            {
+                MessageBox.Show("Jenis Event hanya boleh 'Kompetisi', 'Pelatihan', 'Sosial', atau 'Lainnya'.", "Validasi Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 SqlTransaction transaction = null;
@@ -328,6 +338,16 @@ namespace ucp2
             if (selectedEventDate < DateTime.Today.AddYears(-10))
             {
                 MessageBox.Show("Tanggal event terlalu jauh di masa lalu.", "Validasi Tanggal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!string.Equals(jenisEvent, "Kompetisi", StringComparison.OrdinalIgnoreCase) &&
+                !string.Equals(jenisEvent, "Pelatihan", StringComparison.OrdinalIgnoreCase) &&
+                !string.Equals(jenisEvent, "Sosial", StringComparison.OrdinalIgnoreCase) &&
+                !string.Equals(jenisEvent, "Lainnya", StringComparison.OrdinalIgnoreCase))
+
+            {
+                MessageBox.Show("Jenis Event hanya boleh 'Kompetisi', 'Pelatihan', 'Sosial', atau 'Lainnya'.", "Validasi Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
