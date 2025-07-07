@@ -212,7 +212,12 @@ namespace ucp2
 
         private void btnHapus_Click(object sender, EventArgs e)
         {
-            if (dgvAtlet.SelectedRows.Count == 0) return;
+            if (dgvAtlet.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Pilih baris yang ingin dihapus terlebih dahulu.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (MessageBox.Show("Yakin ingin meghapus data ini?", "Konfirmasi", MessageBoxButtons.YesNo) != DialogResult.Yes)
                 return;
             try
