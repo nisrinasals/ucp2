@@ -117,6 +117,12 @@ namespace ucp2
                 return;
             }
 
+            if (txtNim.Text.Trim().Length != 11 || !long.TryParse(txtNim.Text.Trim(), out _))
+            {
+                MessageBox.Show("NIM harus terdiri dari 11 angka.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             SqlConnection conn = null;
             SqlTransaction transaction = null;
 
