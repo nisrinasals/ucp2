@@ -249,6 +249,12 @@ namespace ucp2
                 MessageBox.Show("Pilih data yang akan diubah!", "Peringatan");
                 return;
             }
+
+            if (MessageBox.Show("Apakah Anda yakin ingin memperbarui data Atlet ini?", "Konfirmasi Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                return;
+            }
+
             try
             {
                 using (var conn = new SqlConnection(connectionString))
