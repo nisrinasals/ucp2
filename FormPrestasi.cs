@@ -141,7 +141,7 @@ namespace ucp2
             {
                 using (var conn = new SqlConnection(connectionString))
                 {
-                    using (var cmd = new SqlCommand("AddPrestasiForAtlet", conn))
+                    using (var cmd = new SqlCommand("AddPrestasi", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 
