@@ -170,10 +170,10 @@ namespace ucp2
             {
                 MessageBox.Show("Gagal menambahkan data: " + ex.Message, "Kesalahan Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Terjadi kesalahan umum: " + ex.Message, "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Terjadi kesalahan umum: " + ex.Message, "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
 
         private void btnHapus_Click(object sender, EventArgs e)
