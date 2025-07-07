@@ -35,7 +35,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtNim = new System.Windows.Forms.TextBox();
             this.txtNama = new System.Windows.Forms.TextBox();
-            this.txtProdi = new System.Windows.Forms.TextBox();
             this.txtAngkatan = new System.Windows.Forms.TextBox();
             this.txtCabor = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -47,6 +46,7 @@
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.PictureBox();
             this.btnImport = new System.Windows.Forms.Button();
+            this.cB_Prodi = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAtlet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
             this.SuspendLayout();
@@ -101,13 +101,6 @@
             this.txtNama.Size = new System.Drawing.Size(157, 22);
             this.txtNama.TabIndex = 5;
             // 
-            // txtProdi
-            // 
-            this.txtProdi.Location = new System.Drawing.Point(49, 184);
-            this.txtProdi.Name = "txtProdi";
-            this.txtProdi.Size = new System.Drawing.Size(157, 22);
-            this.txtProdi.TabIndex = 6;
-            // 
             // txtAngkatan
             // 
             this.txtAngkatan.Location = new System.Drawing.Point(49, 238);
@@ -146,10 +139,10 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Geoform", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(245, 19);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(557, 38);
+            this.label6.Size = new System.Drawing.Size(584, 36);
             this.label6.TabIndex = 11;
             this.label6.Text = "DATA ATLET FAKULTAS TEKNIK UMY";
             // 
@@ -214,12 +207,26 @@
             this.btnImport.UseVisualStyleBackColor = true;
             this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
+            // cB_Prodi
+            // 
+            this.cB_Prodi.FormattingEnabled = true;
+            this.cB_Prodi.Items.AddRange(new object[] {
+            "Teknik Sipil",
+            "Teknik Mesin",
+            "Teknik Elektro",
+            "Teknologi Informasi"});
+            this.cB_Prodi.Location = new System.Drawing.Point(49, 184);
+            this.cB_Prodi.Name = "cB_Prodi";
+            this.cB_Prodi.Size = new System.Drawing.Size(155, 24);
+            this.cB_Prodi.TabIndex = 18;
+            // 
             // FormAtlet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Bisque;
             this.ClientSize = new System.Drawing.Size(854, 492);
+            this.Controls.Add(this.cB_Prodi);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnRefresh);
@@ -231,7 +238,6 @@
             this.Controls.Add(this.txtCabor);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtAngkatan);
-            this.Controls.Add(this.txtProdi);
             this.Controls.Add(this.txtNama);
             this.Controls.Add(this.txtNim);
             this.Controls.Add(this.label4);
@@ -256,7 +262,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtNim;
         private System.Windows.Forms.TextBox txtNama;
-        private System.Windows.Forms.TextBox txtProdi;
         private System.Windows.Forms.TextBox txtAngkatan;
         private System.Windows.Forms.TextBox txtCabor;
         private System.Windows.Forms.Label label5;
@@ -268,5 +273,6 @@
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.PictureBox btnBack;
         private System.Windows.Forms.Button btnImport;
+        private System.Windows.Forms.ComboBox cB_Prodi;
     }
 }

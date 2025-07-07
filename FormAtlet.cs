@@ -94,7 +94,8 @@ namespace ucp2
         {
             txtNim.Clear();
             txtNama.Clear();
-            txtProdi.Clear();
+            cB_Prodi.SelectedIndex = -1;
+            cB_Prodi.Text = "";
             txtAngkatan.Clear();
             txtCabor.Clear();
 
@@ -104,9 +105,12 @@ namespace ucp2
 
         private void btnTambah_Click(object sender, EventArgs e)
         {
+            string prodi = cB_Prodi.Text.Trim();
+
+
             if (string.IsNullOrWhiteSpace(txtNim.Text) ||
                 string.IsNullOrWhiteSpace(txtNama.Text) ||
-                string.IsNullOrWhiteSpace(txtProdi.Text) ||
+                string.IsNullOrWhiteSpace(prodi) ||
                 string.IsNullOrWhiteSpace(txtAngkatan.Text) ||
                 string.IsNullOrWhiteSpace(txtCabor.Text))
             {
@@ -129,6 +133,16 @@ namespace ucp2
             if (!txtNama.Text.Trim().All(c => char.IsLetter(c) || char.IsWhiteSpace(c)))
             {
                 MessageBox.Show("Nama hanya boleh berisi huruf dan spasi.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!string.Equals(prodi, "Teknik Sipil", StringComparison.OrdinalIgnoreCase) &&
+                !string.Equals(prodi, "Teknik Mesin", StringComparison.OrdinalIgnoreCase) &&
+                !string.Equals(prodi, "Teknik Elektro", StringComparison.OrdinalIgnoreCase) &&
+                !string.Equals(prodi, "Teknologi Informasi", StringComparison.OrdinalIgnoreCase))
+
+            {
+                MessageBox.Show("Prodi hanya boleh 'Teknik Sipil', 'Teknik Mesin', 'Teknik Elektro', atau 'Teknologi Informasi'.", "Validasi Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -162,7 +176,7 @@ namespace ucp2
 
                     cmd.Parameters.AddWithValue("@nim", txtNim.Text.Trim());
                     cmd.Parameters.AddWithValue("@nama", txtNama.Text.Trim());
-                    cmd.Parameters.AddWithValue("@prodi", txtProdi.Text.Trim());
+                    cmd.Parameters.AddWithValue("@prodi", prodi);
                     cmd.Parameters.AddWithValue("@angkatan", txtAngkatan.Text.Trim());
                     cmd.Parameters.AddWithValue("@cabor", txtCabor.Text.Trim());
 
@@ -228,6 +242,8 @@ namespace ucp2
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            string prodi = cB_Prodi.Text.Trim();
+
             if (dgvAtlet.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Pilih data yang akan diubah!", "Peringatan");
@@ -243,7 +259,7 @@ namespace ucp2
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@nim", txtNim.Text);
                         cmd.Parameters.AddWithValue("@nama", txtNama.Text);
-                        cmd.Parameters.AddWithValue("@prodi", txtProdi.Text);
+                        cmd.Parameters.AddWithValue("@prodi", prodi);
                         cmd.Parameters.AddWithValue("@angkatan", txtAngkatan.Text);
                         cmd.Parameters.AddWithValue("@cabor", txtCabor.Text);
                         cmd.ExecuteNonQuery();
@@ -274,7 +290,7 @@ namespace ucp2
                 var row = dgvAtlet.Rows[e.RowIndex];
                 txtNim.Text = row.Cells[0].Value?.ToString() ?? string.Empty;
                 txtNama.Text = row.Cells[1].Value?.ToString() ?? string.Empty;
-                txtProdi.Text = row.Cells[2].Value?.ToString() ?? string.Empty;
+                cB_Prodi.Text = row.Cells[2].Value?.ToString() ?? string.Empty;
                 txtAngkatan.Text = row.Cells[3].Value?.ToString() ?? string.Empty;
                 txtCabor.Text = row.Cells[4].Value?.ToString() ?? string.Empty;
             }
