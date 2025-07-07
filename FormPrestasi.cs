@@ -137,6 +137,12 @@ namespace ucp2
                 return;
             }
 
+            if (!int.TryParse(txtTahun.Text.Trim(), out int tahun) || tahun < 2010 || tahun > DateTime.Now.Year)
+            {
+                MessageBox.Show($"Angkatan harus diisi antara tahun 2010 dan {DateTime.Now.Year}.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
                 using (var conn = new SqlConnection(connectionString))
@@ -209,6 +215,13 @@ namespace ucp2
                 MessageBox.Show("Silakan pilih baris yang ingin diupdate.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+            if (!int.TryParse(txtTahun.Text.Trim(), out int tahun) || tahun < 2010 || tahun > DateTime.Now.Year)
+            {
+                MessageBox.Show($"Angkatan harus diisi antara tahun 2010 dan {DateTime.Now.Year}.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (MessageBox.Show("Yakin ingin mengupdate data ini?", "Konfirmasi", MessageBoxButtons.YesNo) != DialogResult.Yes)
                 return;
             try
