@@ -250,6 +250,34 @@ namespace ucp2
                 return;
             }
 
+            if (txtNim.Text.Trim().Length != 11 || !long.TryParse(txtNim.Text.Trim(), out _))
+            {
+                MessageBox.Show("NIM harus terdiri dari 11 angka.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!int.TryParse(txtAngkatan.Text.Trim(), out int angkatan) || angkatan < 2010 || angkatan > DateTime.Now.Year)
+            {
+                MessageBox.Show($"Angkatan harus diisi antara tahun 2010 dan {DateTime.Now.Year}.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!txtNama.Text.Trim().All(c => char.IsLetter(c) || char.IsWhiteSpace(c)))
+            {
+                MessageBox.Show("Nama hanya boleh berisi huruf dan spasi.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!string.Equals(prodi, "Teknik Sipil", StringComparison.OrdinalIgnoreCase) &&
+                !string.Equals(prodi, "Teknik Mesin", StringComparison.OrdinalIgnoreCase) &&
+                !string.Equals(prodi, "Teknik Elektro", StringComparison.OrdinalIgnoreCase) &&
+                !string.Equals(prodi, "Teknologi Informasi", StringComparison.OrdinalIgnoreCase))
+
+            {
+                MessageBox.Show("Prodi hanya boleh 'Teknik Sipil', 'Teknik Mesin', 'Teknik Elektro', atau 'Teknologi Informasi'.", "Validasi Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (MessageBox.Show("Apakah Anda yakin ingin memperbarui data Atlet ini?", "Konfirmasi Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
                 return;
