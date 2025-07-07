@@ -6,11 +6,10 @@ using System.Runtime.Caching;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
 using System.IO;
+using System.Linq;
 
 namespace ucp2
 {
- //agung in here
- //ucel juga
  public partial class FormAtlet : Form
     {
         private readonly string connectionString = "Server=SAS\\SQLEXPRESS;Database=keuangan2;Integrated Security=True";
@@ -32,7 +31,6 @@ namespace ucp2
             EnsureIndexes();
             LoadData();
         }
-        //nih gung
         private void LoadData()
         {
             DataTable dt;
@@ -63,7 +61,6 @@ namespace ucp2
             dgvAtlet.AutoGenerateColumns = true;
             dgvAtlet.DataSource = dt;
         }
-        //nih sals
 
         private void EnsureIndexes()
         {
@@ -126,6 +123,12 @@ namespace ucp2
             if (!int.TryParse(txtAngkatan.Text.Trim(), out int angkatan) || angkatan < 2010 || angkatan > DateTime.Now.Year)
             {
                 MessageBox.Show($"Angkatan harus diisi antara tahun 2010 dan {DateTime.Now.Year}.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!txtNama.Text.Trim().All(c => char.IsLetter(c) || char.IsWhiteSpace(c)))
+            {
+                MessageBox.Show("Nama hanya boleh berisi huruf dan spasi.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
