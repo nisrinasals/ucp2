@@ -123,6 +123,12 @@ namespace ucp2
                 return;
             }
 
+            if (!int.TryParse(txtAngkatan.Text.Trim(), out int angkatan) || angkatan < 2010 || angkatan > DateTime.Now.Year)
+            {
+                MessageBox.Show($"Angkatan harus diisi antara tahun 2010 dan {DateTime.Now.Year}.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             SqlConnection conn = null;
             SqlTransaction transaction = null;
 
