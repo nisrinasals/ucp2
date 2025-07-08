@@ -75,5 +75,19 @@ namespace ucp2
             }
         }
 
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Hide();
+                FormDashboard formDashboard = new FormDashboard();
+                formDashboard.ShowDialog();
+                this.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error opening FormDashboard: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

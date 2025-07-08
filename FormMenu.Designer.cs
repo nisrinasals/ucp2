@@ -33,6 +33,7 @@
             this.btnKeuangan = new System.Windows.Forms.Button();
             this.btnEvent = new System.Windows.Forms.Button();
             this.labelMenu = new System.Windows.Forms.Label();
+            this.btnDashboard = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAtlet
@@ -79,20 +80,31 @@
             // 
             this.labelMenu.AutoSize = true;
             this.labelMenu.BackColor = System.Drawing.Color.Transparent;
-            this.labelMenu.Font = new System.Drawing.Font("Geoform", 40.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 40.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMenu.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.labelMenu.Location = new System.Drawing.Point(165, 77);
             this.labelMenu.Name = "labelMenu";
-            this.labelMenu.Size = new System.Drawing.Size(499, 84);
+            this.labelMenu.Size = new System.Drawing.Size(492, 76);
             this.labelMenu.TabIndex = 4;
             this.labelMenu.Text = "MENU UTAMA";
+            // 
+            // btnDashboard
+            // 
+            this.btnDashboard.Location = new System.Drawing.Point(309, 386);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Size = new System.Drawing.Size(202, 49);
+            this.btnDashboard.TabIndex = 5;
+            this.btnDashboard.Text = "Grafik Keuangan";
+            this.btnDashboard.UseVisualStyleBackColor = true;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Bisque;
-            this.ClientSize = new System.Drawing.Size(814, 459);
+            this.ClientSize = new System.Drawing.Size(814, 483);
+            this.Controls.Add(this.btnDashboard);
             this.Controls.Add(this.labelMenu);
             this.Controls.Add(this.btnEvent);
             this.Controls.Add(this.btnKeuangan);
@@ -112,6 +124,7 @@
         private System.Windows.Forms.Button btnKeuangan;
         private System.Windows.Forms.Button btnEvent;
         private System.Windows.Forms.Label labelMenu;
+        private System.Windows.Forms.Button btnDashboard;
     }
 }
 

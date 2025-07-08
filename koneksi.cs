@@ -16,7 +16,7 @@ namespace ucp2
             try
             {
                 string localIP = GetLocalIPAddress(); // mendeklarasikan ipaddress
-                connectStr = $"Data Source={localIP};Initial Catalog=keuangan2;Integrated Security=True;TrustServerCertificate=True";
+                connectStr = $"Server={localIP};Initial Catalog=keuangan2;Integrated Security=True";
                 return connectStr;
             }
             catch (Exception ex)

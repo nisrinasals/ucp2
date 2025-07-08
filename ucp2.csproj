@@ -135,6 +135,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.ValueTuple.4.4.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -161,6 +162,12 @@
     </Compile>
     <Compile Include="FormAtlet.Designer.cs">
       <DependentUpon>FormAtlet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDashboard.Designer.cs">
+      <DependentUpon>FormDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="FormEvent.cs">
       <SubType>Form</SubType>
@@ -209,6 +216,9 @@
     </Compile>
     <EmbeddedResource Include="FormAtlet.resx">
       <DependentUpon>FormAtlet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDashboard.resx">
+      <DependentUpon>FormDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEvent.resx">
       <DependentUpon>FormEvent.cs</DependentUpon>
