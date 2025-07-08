@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using Microsoft.Reporting.WinForms;
 
@@ -9,6 +10,7 @@ namespace ucp2
 {
     public partial class reportEvent : Form
     {
+        koneksi kon = new koneksi();
         public reportEvent()
         {
             InitializeComponent();
@@ -25,7 +27,7 @@ namespace ucp2
 
         private void SetupReportViewer()
         {
-            string connectionString = "Server=SAS\\SQLEXPRESS;Database=keuangan2;Integrated Security=True";
+            string connectionString = kon.connectionString();
             string query =@"
             SELECT
                             E.id_event,
@@ -54,7 +56,9 @@ namespace ucp2
             rvEvent.LocalReport.DataSources.Clear();
             rvEvent.LocalReport.DataSources.Add(rds);
 
-            rvEvent.LocalReport.ReportPath = @"D:\kuliah\4\PABD\pabd\ucp2\ReportEvent.rdlc";
+            // Mengubah path report menjadi relatif
+            string reportPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ReportEvent.rdlc");
+            rvEvent.LocalReport.ReportPath = reportPath;
             rvEvent.RefreshReport();
         }
 

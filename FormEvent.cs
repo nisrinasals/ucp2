@@ -12,7 +12,8 @@ namespace ucp2
 {
     public partial class FormEvent : Form
     {
-        private readonly string connectionString = "Server=SAS\\SQLEXPRESS;Database=keuangan2;Integrated Security=True";
+        koneksi kon = new koneksi();
+        private readonly string connectionString;
 
         private int selectedEventId = -1;
         private int selectedPartisipasiId = -1;
@@ -25,6 +26,7 @@ namespace ucp2
         public FormEvent()
         {
             InitializeComponent();
+            connectionString = kon.connectionString();
         }
 
         private void FormEvent_Load(object sender, EventArgs e)

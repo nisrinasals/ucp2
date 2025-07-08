@@ -15,7 +15,8 @@ namespace ucp2
 {
     public partial class FormKeuangan : Form
     {
-        private readonly string connectionString = "Server=SAS\\SQLEXPRESS;Database=keuangan2;Integrated Security=True";
+        koneksi kon = new koneksi();
+        private readonly string connectionString;
 
         private int _selectedKeuanganId = -1;
         private readonly MemoryCache _cache = MemoryCache.Default;
@@ -29,6 +30,7 @@ namespace ucp2
         public FormKeuangan()
         {
             InitializeComponent();
+            connectionString = kon.connectionString();
         }
         //aku nyoba
         private void FormKeuangan_Load(object sender, EventArgs e)

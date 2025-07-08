@@ -12,7 +12,8 @@ namespace ucp2
 {
  public partial class FormAtlet : Form
     {
-        private readonly string connectionString = "Server=SAS\\SQLEXPRESS;Database=keuangan2;Integrated Security=True";
+        koneksi kon = new koneksi();
+        private string connectionString;
 
         private readonly MemoryCache _cache = MemoryCache.Default;
         private readonly CacheItemPolicy _policy = new CacheItemPolicy
@@ -24,6 +25,7 @@ namespace ucp2
         public FormAtlet()
         {
             InitializeComponent();
+            connectionString = kon.connectionString();
         }
 
         private void FormAtlet_Load(object sender, EventArgs e)

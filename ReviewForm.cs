@@ -13,13 +13,14 @@ namespace ucp2
 {
     public partial class ReviewForm: Form
     {
-        private string connectionString = "Server=SAS\\SQLEXPRESS;Database=keuangan2;Integrated Security=True";
-
+        koneksi kon = new koneksi();
+        private readonly string connectionString;
         public ReviewForm(DataTable data)
 
         {
             InitializeComponent();
             dgvPreview.DataSource = data;
+            connectionString = kon.connectionString();
         }
 
         private bool ValidateRow(DataRow row)

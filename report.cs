@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace ucp2
 {
     public partial class report : Form
     {
+        koneksi kon = new koneksi();
         public report()
         {
             InitializeComponent();
@@ -30,8 +32,7 @@ namespace ucp2
 
         private void SetupReportViewer()
         {
-            string connectionString = "Server=SAS\\SQLEXPRESS;Database=keuangan2;Integrated Security=True";
-
+            string connectionString = kon.connectionString();
             string query = @"
                 SELECT
                     K.id_keuangan,
@@ -59,7 +60,9 @@ namespace ucp2
             reportViewer1.LocalReport.DataSources.Clear();
             reportViewer1.LocalReport.DataSources.Add(rds);
 
-            reportViewer1.LocalReport.ReportPath = @"D:\kuliah\4\PABD\pabd\ucp2\ReportKeuangan.rdlc";
+            // Mengubah path report menjadi relatif
+            string reportPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ReportKeuangan.rdlc");
+            reportViewer1.LocalReport.ReportPath = reportPath;
             reportViewer1.RefreshReport();
         }
 

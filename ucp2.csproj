@@ -186,6 +186,7 @@
     <Compile Include="FormPrestasi.Designer.cs">
       <DependentUpon>FormPrestasi.cs</DependentUpon>
     </Compile>
+    <Compile Include="koneksi.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="report.cs">
