@@ -16,6 +16,9 @@ namespace ucp2
 
         private void reportEvent_Load(object sender, EventArgs e)
         {
+            // Mengatur form menjadi fullscreen
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.None;
             SetupReportViewer();
             this.rvEvent.RefreshReport();
         }

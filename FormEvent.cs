@@ -29,6 +29,9 @@ namespace ucp2
 
         private void FormEvent_Load(object sender, EventArgs e)
         {
+            // Mengatur form menjadi fullscreen
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.None;
             EnsureIndexes();
             LoadData();
         }

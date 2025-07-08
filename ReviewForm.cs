@@ -21,11 +21,6 @@ namespace ucp2
             InitializeComponent();
             dgvPreview.DataSource = data;
         }
-        private void PreviewForm_Load(object sender, EventArgs e)
-        {
-            
-            dgvPreview.AutoResizeColumns(); 
-        }
 
         private bool ValidateRow(DataRow row)
         {
@@ -110,7 +105,11 @@ namespace ucp2
 
         private void ReviewForm_Load(object sender, EventArgs e)
         {
+            // Mengatur form menjadi fullscreen
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.None;
 
+            dgvPreview.AutoResizeColumns();
         }
     }
 }

@@ -33,6 +33,9 @@ namespace ucp2
         //aku nyoba
         private void FormKeuangan_Load(object sender, EventArgs e)
         {
+            // Mengatur form menjadi fullscreen
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.None;
             EnsureIndexes();
             LoadData();
             DisplayGlobalSaldo();
