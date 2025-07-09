@@ -54,82 +54,83 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 72);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(40, 89);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(25, 13);
+            this.label1.Size = new System.Drawing.Size(39, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nim";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(30, 117);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.label2.Location = new System.Drawing.Point(40, 144);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(53, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Nama";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(34, 161);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.label3.Location = new System.Drawing.Point(45, 198);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 13);
+            this.label3.Size = new System.Drawing.Size(48, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Prodi";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(34, 204);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.label4.Location = new System.Drawing.Point(45, 249);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 13);
+            this.label4.Size = new System.Drawing.Size(78, 20);
             this.label4.TabIndex = 3;
             this.label4.Text = "Angkatan";
             // 
             // txtNim
             // 
-            this.txtNim.Location = new System.Drawing.Point(30, 87);
-            this.txtNim.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNim.Location = new System.Drawing.Point(40, 107);
+            this.txtNim.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNim.Name = "txtNim";
-            this.txtNim.Size = new System.Drawing.Size(162, 20);
+            this.txtNim.Size = new System.Drawing.Size(215, 22);
             this.txtNim.TabIndex = 4;
             // 
             // txtNama
             // 
-            this.txtNama.Location = new System.Drawing.Point(30, 132);
-            this.txtNama.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNama.Location = new System.Drawing.Point(40, 162);
+            this.txtNama.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNama.Name = "txtNama";
-            this.txtNama.Size = new System.Drawing.Size(162, 20);
+            this.txtNama.Size = new System.Drawing.Size(215, 22);
             this.txtNama.TabIndex = 5;
             // 
             // txtAngkatan
             // 
-            this.txtAngkatan.Location = new System.Drawing.Point(30, 219);
-            this.txtAngkatan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtAngkatan.Location = new System.Drawing.Point(40, 270);
+            this.txtAngkatan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtAngkatan.Name = "txtAngkatan";
-            this.txtAngkatan.Size = new System.Drawing.Size(162, 20);
+            this.txtAngkatan.Size = new System.Drawing.Size(215, 22);
             this.txtAngkatan.TabIndex = 7;
             // 
             // txtCabor
             // 
-            this.txtCabor.Location = new System.Drawing.Point(30, 262);
-            this.txtCabor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCabor.Location = new System.Drawing.Point(40, 322);
+            this.txtCabor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCabor.Name = "txtCabor";
-            this.txtCabor.Size = new System.Drawing.Size(162, 20);
+            this.txtCabor.Size = new System.Drawing.Size(215, 22);
             this.txtCabor.TabIndex = 9;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(34, 247);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.label5.Location = new System.Drawing.Point(45, 301);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(90, 13);
+            this.label5.Size = new System.Drawing.Size(139, 20);
             this.label5.TabIndex = 8;
             this.label5.Text = "Cabang Olahraga";
             // 
@@ -141,12 +142,12 @@
             this.dgvAtlet.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAtlet.BackgroundColor = System.Drawing.Color.Tan;
             this.dgvAtlet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAtlet.Location = new System.Drawing.Point(206, 56);
-            this.dgvAtlet.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvAtlet.Location = new System.Drawing.Point(275, 69);
+            this.dgvAtlet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvAtlet.Name = "dgvAtlet";
             this.dgvAtlet.RowHeadersWidth = 51;
             this.dgvAtlet.RowTemplate.Height = 24;
-            this.dgvAtlet.Size = new System.Drawing.Size(697, 417);
+            this.dgvAtlet.Size = new System.Drawing.Size(929, 513);
             this.dgvAtlet.TabIndex = 10;
             this.dgvAtlet.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAtlet_CellContentClick);
             // 
@@ -155,20 +156,19 @@
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(168, 19);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(224, 23);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(730, 29);
+            this.label6.Size = new System.Drawing.Size(973, 36);
             this.label6.TabIndex = 11;
             this.label6.Text = "DATA ATLET FAKULTAS TEKNIK UMY";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnTambah
             // 
-            this.btnTambah.Location = new System.Drawing.Point(30, 327);
-            this.btnTambah.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTambah.Location = new System.Drawing.Point(40, 402);
+            this.btnTambah.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTambah.Name = "btnTambah";
-            this.btnTambah.Size = new System.Drawing.Size(68, 35);
+            this.btnTambah.Size = new System.Drawing.Size(91, 43);
             this.btnTambah.TabIndex = 12;
             this.btnTambah.Text = "Tambah";
             this.btnTambah.UseVisualStyleBackColor = true;
@@ -176,10 +176,10 @@
             // 
             // btnHapus
             // 
-            this.btnHapus.Location = new System.Drawing.Point(105, 327);
-            this.btnHapus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnHapus.Location = new System.Drawing.Point(140, 402);
+            this.btnHapus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHapus.Name = "btnHapus";
-            this.btnHapus.Size = new System.Drawing.Size(66, 35);
+            this.btnHapus.Size = new System.Drawing.Size(88, 43);
             this.btnHapus.TabIndex = 13;
             this.btnHapus.Text = "Hapus";
             this.btnHapus.UseVisualStyleBackColor = true;
@@ -187,10 +187,10 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(30, 375);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdate.Location = new System.Drawing.Point(40, 462);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(68, 32);
+            this.btnUpdate.Size = new System.Drawing.Size(91, 39);
             this.btnUpdate.TabIndex = 14;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -198,10 +198,10 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(105, 375);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRefresh.Location = new System.Drawing.Point(140, 462);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(64, 32);
+            this.btnRefresh.Size = new System.Drawing.Size(85, 39);
             this.btnRefresh.TabIndex = 15;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
@@ -210,10 +210,10 @@
             // btnBack
             // 
             this.btnBack.Image = ((System.Drawing.Image)(resources.GetObject("btnBack.Image")));
-            this.btnBack.Location = new System.Drawing.Point(32, 25);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBack.Location = new System.Drawing.Point(43, 31);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(36, 32);
+            this.btnBack.Size = new System.Drawing.Size(48, 39);
             this.btnBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnBack.TabIndex = 16;
             this.btnBack.TabStop = false;
@@ -221,10 +221,10 @@
             // 
             // btnImport
             // 
-            this.btnImport.Location = new System.Drawing.Point(30, 429);
-            this.btnImport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnImport.Location = new System.Drawing.Point(40, 528);
+            this.btnImport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(68, 32);
+            this.btnImport.Size = new System.Drawing.Size(91, 39);
             this.btnImport.TabIndex = 17;
             this.btnImport.Text = "Import";
             this.btnImport.UseVisualStyleBackColor = true;
@@ -238,18 +238,18 @@
             "Teknik Mesin",
             "Teknik Elektro",
             "Teknologi Informasi"});
-            this.cB_Prodi.Location = new System.Drawing.Point(30, 176);
-            this.cB_Prodi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cB_Prodi.Location = new System.Drawing.Point(40, 217);
+            this.cB_Prodi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cB_Prodi.Name = "cB_Prodi";
-            this.cB_Prodi.Size = new System.Drawing.Size(162, 21);
+            this.cB_Prodi.Size = new System.Drawing.Size(215, 24);
             this.cB_Prodi.TabIndex = 18;
             // 
             // FormAtlet
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Bisque;
-            this.ClientSize = new System.Drawing.Size(923, 494);
+            this.ClientSize = new System.Drawing.Size(1231, 608);
             this.Controls.Add(this.cB_Prodi);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.btnBack);
@@ -268,7 +268,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormAtlet";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormAtlet";

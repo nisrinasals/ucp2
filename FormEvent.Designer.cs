@@ -56,29 +56,29 @@
             // 
             // txtNIM
             // 
-            this.txtNIM.Location = new System.Drawing.Point(29, 106);
-            this.txtNIM.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNIM.Location = new System.Drawing.Point(39, 130);
+            this.txtNIM.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNIM.Name = "txtNIM";
-            this.txtNIM.Size = new System.Drawing.Size(168, 20);
+            this.txtNIM.Size = new System.Drawing.Size(223, 22);
             this.txtNIM.TabIndex = 28;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(28, 91);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.label4.Location = new System.Drawing.Point(37, 112);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 13);
+            this.label4.Size = new System.Drawing.Size(78, 20);
             this.label4.TabIndex = 39;
             this.label4.Text = "NIM Atlet";
             // 
             // btnBack
             // 
             this.btnBack.Image = ((System.Drawing.Image)(resources.GetObject("btnBack.Image")));
-            this.btnBack.Location = new System.Drawing.Point(28, 27);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBack.Location = new System.Drawing.Point(37, 33);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(36, 32);
+            this.btnBack.Size = new System.Drawing.Size(48, 39);
             this.btnBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnBack.TabIndex = 37;
             this.btnBack.TabStop = false;
@@ -89,20 +89,19 @@
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(19, 27);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(25, 33);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(781, 35);
+            this.label6.Size = new System.Drawing.Size(1041, 43);
             this.label6.TabIndex = 38;
             this.label6.Text = "DATA EVENT ATLET FAKULTAS TEKNIK";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(124, 402);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRefresh.Location = new System.Drawing.Point(165, 495);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(70, 33);
+            this.btnRefresh.Size = new System.Drawing.Size(93, 41);
             this.btnRefresh.TabIndex = 34;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
@@ -110,10 +109,10 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(28, 402);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdate.Location = new System.Drawing.Point(37, 495);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(73, 33);
+            this.btnUpdate.Size = new System.Drawing.Size(97, 41);
             this.btnUpdate.TabIndex = 33;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -121,10 +120,10 @@
             // 
             // btnHapus
             // 
-            this.btnHapus.Location = new System.Drawing.Point(124, 359);
-            this.btnHapus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnHapus.Location = new System.Drawing.Point(165, 442);
+            this.btnHapus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHapus.Name = "btnHapus";
-            this.btnHapus.Size = new System.Drawing.Size(72, 33);
+            this.btnHapus.Size = new System.Drawing.Size(96, 41);
             this.btnHapus.TabIndex = 35;
             this.btnHapus.Text = "Hapus";
             this.btnHapus.UseVisualStyleBackColor = true;
@@ -132,10 +131,10 @@
             // 
             // btnTambah
             // 
-            this.btnTambah.Location = new System.Drawing.Point(29, 359);
-            this.btnTambah.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTambah.Location = new System.Drawing.Point(39, 442);
+            this.btnTambah.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTambah.Name = "btnTambah";
-            this.btnTambah.Size = new System.Drawing.Size(73, 33);
+            this.btnTambah.Size = new System.Drawing.Size(97, 41);
             this.btnTambah.TabIndex = 36;
             this.btnTambah.Text = "Tambah";
             this.btnTambah.UseVisualStyleBackColor = true;
@@ -149,103 +148,103 @@
             this.dgvEvent.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvEvent.BackgroundColor = System.Drawing.Color.Tan;
             this.dgvEvent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEvent.Location = new System.Drawing.Point(223, 86);
-            this.dgvEvent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvEvent.Location = new System.Drawing.Point(297, 106);
+            this.dgvEvent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvEvent.Name = "dgvEvent";
             this.dgvEvent.RowHeadersWidth = 51;
             this.dgvEvent.RowTemplate.Height = 24;
-            this.dgvEvent.Size = new System.Drawing.Size(567, 441);
+            this.dgvEvent.Size = new System.Drawing.Size(756, 543);
             this.dgvEvent.TabIndex = 32;
             this.dgvEvent.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEvent_CellContentClick);
             // 
             // txtEvent
             // 
-            this.txtEvent.Location = new System.Drawing.Point(29, 150);
-            this.txtEvent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEvent.Location = new System.Drawing.Point(39, 185);
+            this.txtEvent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtEvent.Name = "txtEvent";
-            this.txtEvent.Size = new System.Drawing.Size(167, 20);
+            this.txtEvent.Size = new System.Drawing.Size(221, 22);
             this.txtEvent.TabIndex = 29;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 303);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.label3.Location = new System.Drawing.Point(36, 371);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 13);
+            this.label3.Size = new System.Drawing.Size(68, 20);
             this.label3.TabIndex = 27;
             this.label3.Text = "Tanggal";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 177);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.label2.Location = new System.Drawing.Point(36, 218);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 13);
+            this.label2.Size = new System.Drawing.Size(96, 20);
             this.label2.TabIndex = 26;
             this.label2.Text = "Jenis Event";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 135);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.label1.Location = new System.Drawing.Point(36, 166);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 13);
+            this.label1.Size = new System.Drawing.Size(100, 20);
             this.label1.TabIndex = 25;
             this.label1.Text = "Nama Event";
             // 
             // txtKeterangan
             // 
-            this.txtKeterangan.Location = new System.Drawing.Point(28, 235);
-            this.txtKeterangan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtKeterangan.Location = new System.Drawing.Point(37, 289);
+            this.txtKeterangan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtKeterangan.Name = "txtKeterangan";
-            this.txtKeterangan.Size = new System.Drawing.Size(169, 20);
+            this.txtKeterangan.Size = new System.Drawing.Size(224, 22);
             this.txtKeterangan.TabIndex = 41;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(28, 220);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.label5.Location = new System.Drawing.Point(37, 269);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(62, 13);
+            this.label5.Size = new System.Drawing.Size(94, 20);
             this.label5.TabIndex = 40;
             this.label5.Text = "Keterangan";
             // 
             // txtPeran
             // 
-            this.txtPeran.Location = new System.Drawing.Point(28, 277);
-            this.txtPeran.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPeran.Location = new System.Drawing.Point(37, 341);
+            this.txtPeran.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPeran.Name = "txtPeran";
-            this.txtPeran.Size = new System.Drawing.Size(168, 20);
+            this.txtPeran.Size = new System.Drawing.Size(223, 22);
             this.txtPeran.TabIndex = 43;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(27, 261);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.label7.Location = new System.Drawing.Point(36, 321);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(85, 13);
+            this.label7.Size = new System.Drawing.Size(137, 20);
             this.label7.TabIndex = 42;
             this.label7.Text = "Peran Partisipasi";
             // 
             // dtpTanggal
             // 
-            this.dtpTanggal.Location = new System.Drawing.Point(30, 318);
-            this.dtpTanggal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpTanggal.Location = new System.Drawing.Point(40, 391);
+            this.dtpTanggal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpTanggal.Name = "dtpTanggal";
-            this.dtpTanggal.Size = new System.Drawing.Size(168, 20);
+            this.dtpTanggal.Size = new System.Drawing.Size(223, 22);
             this.dtpTanggal.TabIndex = 44;
             // 
             // btnReport
             // 
-            this.btnReport.Location = new System.Drawing.Point(122, 461);
-            this.btnReport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReport.Location = new System.Drawing.Point(163, 567);
+            this.btnReport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(72, 36);
+            this.btnReport.Size = new System.Drawing.Size(96, 44);
             this.btnReport.TabIndex = 45;
             this.btnReport.Text = "Report";
             this.btnReport.UseVisualStyleBackColor = true;
@@ -253,10 +252,10 @@
             // 
             // btnImport
             // 
-            this.btnImport.Location = new System.Drawing.Point(28, 461);
-            this.btnImport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnImport.Location = new System.Drawing.Point(37, 567);
+            this.btnImport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(73, 36);
+            this.btnImport.Size = new System.Drawing.Size(97, 44);
             this.btnImport.TabIndex = 46;
             this.btnImport.Text = "Import";
             this.btnImport.UseVisualStyleBackColor = true;
@@ -270,18 +269,18 @@
             "Pelatihan",
             "Sosial",
             "Lainnya"});
-            this.cB_JenisEvent.Location = new System.Drawing.Point(28, 192);
-            this.cB_JenisEvent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cB_JenisEvent.Location = new System.Drawing.Point(37, 236);
+            this.cB_JenisEvent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cB_JenisEvent.Name = "cB_JenisEvent";
-            this.cB_JenisEvent.Size = new System.Drawing.Size(166, 21);
+            this.cB_JenisEvent.Size = new System.Drawing.Size(220, 24);
             this.cB_JenisEvent.TabIndex = 47;
             // 
             // FormEvent
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Bisque;
-            this.ClientSize = new System.Drawing.Size(799, 537);
+            this.ClientSize = new System.Drawing.Size(1065, 661);
             this.Controls.Add(this.cB_JenisEvent);
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.btnReport);
@@ -303,7 +302,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormEvent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormEvent";

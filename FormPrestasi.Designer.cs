@@ -53,10 +53,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 130);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(25, 160);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 17);
+            this.label1.Size = new System.Drawing.Size(120, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nama Prestasi";
             // 
@@ -64,10 +63,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(19, 186);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(25, 229);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 17);
+            this.label2.Size = new System.Drawing.Size(63, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Tingkat";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -76,35 +74,34 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(18, 240);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(24, 295);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 17);
+            this.label3.Size = new System.Drawing.Size(55, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Tahun";
             // 
             // txtPrestasi
             // 
-            this.txtPrestasi.Location = new System.Drawing.Point(21, 145);
-            this.txtPrestasi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPrestasi.Location = new System.Drawing.Point(28, 178);
+            this.txtPrestasi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPrestasi.Name = "txtPrestasi";
-            this.txtPrestasi.Size = new System.Drawing.Size(142, 20);
+            this.txtPrestasi.Size = new System.Drawing.Size(188, 22);
             this.txtPrestasi.TabIndex = 4;
             // 
             // txtTingkat
             // 
-            this.txtTingkat.Location = new System.Drawing.Point(21, 205);
-            this.txtTingkat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTingkat.Location = new System.Drawing.Point(28, 252);
+            this.txtTingkat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTingkat.Name = "txtTingkat";
-            this.txtTingkat.Size = new System.Drawing.Size(142, 20);
+            this.txtTingkat.Size = new System.Drawing.Size(188, 22);
             this.txtTingkat.TabIndex = 5;
             // 
             // txtTahun
             // 
-            this.txtTahun.Location = new System.Drawing.Point(21, 258);
-            this.txtTahun.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTahun.Location = new System.Drawing.Point(28, 318);
+            this.txtTahun.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTahun.Name = "txtTahun";
-            this.txtTahun.Size = new System.Drawing.Size(142, 20);
+            this.txtTahun.Size = new System.Drawing.Size(188, 22);
             this.txtTahun.TabIndex = 6;
             // 
             // dgvPrestasi
@@ -115,21 +112,21 @@
             this.dgvPrestasi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPrestasi.BackgroundColor = System.Drawing.Color.Tan;
             this.dgvPrestasi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPrestasi.Location = new System.Drawing.Point(185, 67);
-            this.dgvPrestasi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvPrestasi.Location = new System.Drawing.Point(247, 82);
+            this.dgvPrestasi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvPrestasi.Name = "dgvPrestasi";
             this.dgvPrestasi.RowHeadersWidth = 51;
             this.dgvPrestasi.RowTemplate.Height = 24;
-            this.dgvPrestasi.Size = new System.Drawing.Size(568, 330);
+            this.dgvPrestasi.Size = new System.Drawing.Size(757, 406);
             this.dgvPrestasi.TabIndex = 7;
             this.dgvPrestasi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPrestasi_CellContentClick);
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(96, 326);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRefresh.Location = new System.Drawing.Point(128, 401);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(67, 25);
+            this.btnRefresh.Size = new System.Drawing.Size(89, 31);
             this.btnRefresh.TabIndex = 15;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
@@ -137,10 +134,10 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(25, 326);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdate.Location = new System.Drawing.Point(33, 401);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(67, 25);
+            this.btnUpdate.Size = new System.Drawing.Size(89, 31);
             this.btnUpdate.TabIndex = 14;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -148,10 +145,10 @@
             // 
             // btnHapus
             // 
-            this.btnHapus.Location = new System.Drawing.Point(96, 294);
-            this.btnHapus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnHapus.Location = new System.Drawing.Point(128, 362);
+            this.btnHapus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHapus.Name = "btnHapus";
-            this.btnHapus.Size = new System.Drawing.Size(67, 25);
+            this.btnHapus.Size = new System.Drawing.Size(89, 31);
             this.btnHapus.TabIndex = 13;
             this.btnHapus.Text = "Hapus";
             this.btnHapus.UseVisualStyleBackColor = true;
@@ -159,10 +156,10 @@
             // 
             // btnTambah
             // 
-            this.btnTambah.Location = new System.Drawing.Point(25, 294);
-            this.btnTambah.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTambah.Location = new System.Drawing.Point(33, 362);
+            this.btnTambah.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTambah.Name = "btnTambah";
-            this.btnTambah.Size = new System.Drawing.Size(67, 25);
+            this.btnTambah.Size = new System.Drawing.Size(89, 31);
             this.btnTambah.TabIndex = 12;
             this.btnTambah.Text = "Tambah";
             this.btnTambah.UseVisualStyleBackColor = true;
@@ -174,20 +171,20 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(180, 25);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(260, 27);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(540, 29);
+            this.label6.Size = new System.Drawing.Size(671, 36);
             this.label6.TabIndex = 23;
             this.label6.Text = "DATA PRESTASI ATLET FAKULTAS TEKNIK";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnBack
             // 
             this.btnBack.Image = ((System.Drawing.Image)(resources.GetObject("btnBack.Image")));
-            this.btnBack.Location = new System.Drawing.Point(21, 22);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBack.Location = new System.Drawing.Point(28, 27);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(36, 32);
+            this.btnBack.Size = new System.Drawing.Size(48, 39);
             this.btnBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnBack.TabIndex = 22;
             this.btnBack.TabStop = false;
@@ -195,29 +192,28 @@
             // 
             // txtNIM
             // 
-            this.txtNIM.Location = new System.Drawing.Point(21, 89);
-            this.txtNIM.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNIM.Location = new System.Drawing.Point(28, 110);
+            this.txtNIM.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNIM.Name = "txtNIM";
-            this.txtNIM.Size = new System.Drawing.Size(142, 20);
+            this.txtNIM.Size = new System.Drawing.Size(188, 22);
             this.txtNIM.TabIndex = 3;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(19, 71);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(25, 87);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(105, 17);
+            this.label4.Size = new System.Drawing.Size(128, 20);
             this.label4.TabIndex = 24;
             this.label4.Text = "NIM Mahasiswa";
             // 
             // BtnImport
             // 
-            this.BtnImport.Location = new System.Drawing.Point(25, 358);
-            this.BtnImport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnImport.Location = new System.Drawing.Point(33, 441);
+            this.BtnImport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnImport.Name = "BtnImport";
-            this.BtnImport.Size = new System.Drawing.Size(67, 25);
+            this.BtnImport.Size = new System.Drawing.Size(89, 31);
             this.BtnImport.TabIndex = 17;
             this.BtnImport.Text = "Import";
             this.BtnImport.UseVisualStyleBackColor = true;
@@ -225,10 +221,10 @@
             // 
             // FormPrestasi
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Bisque;
-            this.ClientSize = new System.Drawing.Size(762, 408);
+            this.ClientSize = new System.Drawing.Size(1016, 502);
             this.Controls.Add(this.BtnImport);
             this.Controls.Add(this.txtNIM);
             this.Controls.Add(this.label4);
@@ -245,7 +241,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormPrestasi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Data Prestasi";
