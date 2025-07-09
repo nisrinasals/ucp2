@@ -83,13 +83,15 @@
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.Font = new System.Drawing.Font("Geoform", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(208, 24);
+            this.label6.Location = new System.Drawing.Point(12, 24);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(673, 43);
+            this.label6.Size = new System.Drawing.Size(869, 43);
             this.label6.TabIndex = 38;
             this.label6.Text = "DATA EVENT ATLET FAKULTAS TEKNIK";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnRefresh
             // 
@@ -133,6 +135,10 @@
             // 
             // dgvEvent
             // 
+            this.dgvEvent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvEvent.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvEvent.BackgroundColor = System.Drawing.Color.Tan;
             this.dgvEvent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEvent.Location = new System.Drawing.Point(244, 79);
@@ -277,7 +283,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FormEvent";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormEvent";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormEvent_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEvent)).EndInit();

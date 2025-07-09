@@ -51,7 +51,7 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(155, 319);
+            this.btnRefresh.Location = new System.Drawing.Point(135, 366);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(75, 23);
             this.btnRefresh.TabIndex = 31;
@@ -61,7 +61,7 @@
             // 
             // btnTambah
             // 
-            this.btnTambah.Location = new System.Drawing.Point(52, 319);
+            this.btnTambah.Location = new System.Drawing.Point(38, 366);
             this.btnTambah.Name = "btnTambah";
             this.btnTambah.Size = new System.Drawing.Size(75, 23);
             this.btnTambah.TabIndex = 28;
@@ -71,16 +71,22 @@
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(137, 32);
+            this.label6.Location = new System.Drawing.Point(12, 32);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(772, 36);
+            this.label6.Size = new System.Drawing.Size(878, 36);
             this.label6.TabIndex = 27;
             this.label6.Text = "DATA KEUANGAN ATLET FAKULTAS TEKNIK UMY";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dgvKeuangan
             // 
+            this.dgvKeuangan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvKeuangan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvKeuangan.BackgroundColor = System.Drawing.Color.Tan;
             this.dgvKeuangan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKeuangan.Location = new System.Drawing.Point(305, 90);
@@ -161,7 +167,7 @@
             // 
             // btnReport
             // 
-            this.btnReport.Location = new System.Drawing.Point(155, 366);
+            this.btnReport.Location = new System.Drawing.Point(135, 411);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(75, 23);
             this.btnReport.TabIndex = 34;
@@ -171,10 +177,10 @@
             // 
             // btnImport
             // 
-            this.btnImport.Location = new System.Drawing.Point(52, 367);
+            this.btnImport.Location = new System.Drawing.Point(38, 411);
             this.btnImport.Margin = new System.Windows.Forms.Padding(2);
             this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(75, 22);
+            this.btnImport.Size = new System.Drawing.Size(75, 23);
             this.btnImport.TabIndex = 35;
             this.btnImport.Text = "Import";
             this.btnImport.UseVisualStyleBackColor = true;
@@ -193,8 +199,9 @@
             // 
             // lblGlobalSaldo
             // 
+            this.lblGlobalSaldo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblGlobalSaldo.AutoSize = true;
-            this.lblGlobalSaldo.Location = new System.Drawing.Point(32, 433);
+            this.lblGlobalSaldo.Location = new System.Drawing.Point(35, 449);
             this.lblGlobalSaldo.Name = "lblGlobalSaldo";
             this.lblGlobalSaldo.Size = new System.Drawing.Size(83, 16);
             this.lblGlobalSaldo.TabIndex = 37;
@@ -223,7 +230,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FormKeuangan";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Data Keuangan";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormKeuangan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKeuangan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).EndInit();

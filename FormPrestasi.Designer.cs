@@ -103,6 +103,10 @@
             // 
             // dgvPrestasi
             // 
+            this.dgvPrestasi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvPrestasi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPrestasi.BackgroundColor = System.Drawing.Color.Tan;
             this.dgvPrestasi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPrestasi.Location = new System.Drawing.Point(223, 83);
@@ -115,46 +119,48 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(545, 433);
+            this.btnRefresh.Location = new System.Drawing.Point(123, 401);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(75, 29);
-            this.btnRefresh.TabIndex = 9;
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 15;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(388, 433);
+            this.btnUpdate.Location = new System.Drawing.Point(28, 401);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 29);
-            this.btnUpdate.TabIndex = 8;
+            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.TabIndex = 14;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnHapus
             // 
-            this.btnHapus.Location = new System.Drawing.Point(307, 433);
+            this.btnHapus.Location = new System.Drawing.Point(123, 362);
             this.btnHapus.Name = "btnHapus";
-            this.btnHapus.Size = new System.Drawing.Size(75, 29);
-            this.btnHapus.TabIndex = 20;
+            this.btnHapus.Size = new System.Drawing.Size(75, 23);
+            this.btnHapus.TabIndex = 13;
             this.btnHapus.Text = "Hapus";
             this.btnHapus.UseVisualStyleBackColor = true;
             this.btnHapus.Click += new System.EventHandler(this.btnHapus_Click);
             // 
             // btnTambah
             // 
-            this.btnTambah.Location = new System.Drawing.Point(223, 433);
+            this.btnTambah.Location = new System.Drawing.Point(28, 362);
             this.btnTambah.Name = "btnTambah";
-            this.btnTambah.Size = new System.Drawing.Size(78, 29);
-            this.btnTambah.TabIndex = 21;
+            this.btnTambah.Size = new System.Drawing.Size(75, 23);
+            this.btnTambah.TabIndex = 12;
             this.btnTambah.Text = "Tambah";
             this.btnTambah.UseVisualStyleBackColor = true;
             this.btnTambah.Click += new System.EventHandler(this.btnTambah_Click);
             // 
             // label6
             // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Geoform", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(240, 31);
@@ -193,11 +199,10 @@
             // 
             // BtnImport
             // 
-            this.BtnImport.Location = new System.Drawing.Point(468, 433);
-            this.BtnImport.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnImport.Location = new System.Drawing.Point(28, 440);
             this.BtnImport.Name = "BtnImport";
-            this.BtnImport.Size = new System.Drawing.Size(72, 29);
-            this.BtnImport.TabIndex = 25;
+            this.BtnImport.Size = new System.Drawing.Size(75, 23);
+            this.BtnImport.TabIndex = 17;
             this.BtnImport.Text = "Import";
             this.BtnImport.UseVisualStyleBackColor = true;
             this.BtnImport.Click += new System.EventHandler(this.BtnImport_Click_1);
@@ -225,13 +230,14 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FormPrestasi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Data Prestasi";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormPrestasi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrestasi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

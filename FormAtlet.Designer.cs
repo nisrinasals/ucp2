@@ -63,7 +63,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(50, 111);
+            this.label2.Location = new System.Drawing.Point(46, 111);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 16);
             this.label2.TabIndex = 1;
@@ -126,6 +126,10 @@
             // 
             // dgvAtlet
             // 
+            this.dgvAtlet.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvAtlet.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAtlet.BackgroundColor = System.Drawing.Color.Tan;
             this.dgvAtlet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAtlet.Location = new System.Drawing.Point(231, 69);
@@ -138,13 +142,15 @@
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(245, 19);
+            this.label6.Location = new System.Drawing.Point(231, 19);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(584, 36);
+            this.label6.Size = new System.Drawing.Size(596, 36);
             this.label6.TabIndex = 11;
             this.label6.Text = "DATA ATLET FAKULTAS TEKNIK UMY";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnTambah
             // 
@@ -245,7 +251,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FormAtlet";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormAtlet";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormAtlet_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAtlet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).EndInit();

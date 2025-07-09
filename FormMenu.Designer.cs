@@ -112,6 +112,7 @@
             this.Controls.Add(this.btnAtlet);
             this.Name = "FormMenu";
             this.Text = "Menu";
+            this.Load += new System.EventHandler(this.FormMenu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

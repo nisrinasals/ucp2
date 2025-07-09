@@ -3,6 +3,8 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Runtime.Caching;
+
+
 namespace ucp2
 {
     public partial class FormMenu : Form
@@ -88,6 +90,11 @@ namespace ucp2
             {
                 MessageBox.Show("Error opening FormDashboard: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void FormMenu_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
