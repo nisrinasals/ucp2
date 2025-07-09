@@ -109,5 +109,17 @@ namespace ucp2
             chartKeuangan.ChartAreas[0].AxisX.Interval = 1;
             chartKeuangan.ChartAreas[0].AxisX.LabelStyle.Angle = -45;
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error opening FormMenu: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
