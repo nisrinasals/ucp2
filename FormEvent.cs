@@ -66,7 +66,9 @@ namespace ucp2
                         FROM 
                             Event E
                         INNER JOIN 
-                            Partisipasi_Atlet PA ON E.id_event = PA.id_event";
+                            Partisipasi_Atlet PA ON E.id_event = PA.id_event
+                        ORDER BY 
+                            E.Tanggal DESC";
 
                         var da = new SqlDataAdapter(query, conn);
                         da.Fill(dt);

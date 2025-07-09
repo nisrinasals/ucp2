@@ -399,10 +399,5 @@ namespace ucp2
                 MessageBox.Show("Error reading the Excel file: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
