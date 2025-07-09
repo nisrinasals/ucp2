@@ -208,6 +208,7 @@ namespace ucp2
                     transaction?.Rollback();
                     MessageBox.Show("Error: " + ex.Message, "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                conn.Close();
             }
         }
 
@@ -258,6 +259,8 @@ namespace ucp2
                         cmd.Parameters.AddWithValue("@id_event", idEventToDelete);
                         cmd.ExecuteNonQuery();
                     }
+                    conn.Close();
+
                 }
                 _cache.Remove(CacheKey);
                 MessageBox.Show("Data berhasil dihapus!", "Sukses");
@@ -402,6 +405,8 @@ namespace ucp2
                 transaction?.Rollback();
                 MessageBox.Show("Error: " + ex.Message, "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            conn.Close();
+
         }
 
         private void btnReport_Click(object sender, EventArgs e)

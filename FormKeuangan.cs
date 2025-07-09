@@ -230,6 +230,7 @@ namespace ucp2
                     transaction?.Rollback();
                     MessageBox.Show("Error: " + ex.Message, "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                conn.Close();
             }
         }
 

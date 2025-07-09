@@ -309,6 +309,7 @@ namespace ucp2
                         cmd.Parameters.AddWithValue("@cabor", txtCabor.Text);
                         cmd.ExecuteNonQuery();
                     }
+                    conn.Close();
                 }
                 _cache.Remove(CacheKey);
                 MessageBox.Show("Data berhasil diperbarui", "Sukses");

@@ -152,6 +152,7 @@ namespace ucp2
             {
                 using (var conn = new SqlConnection(connectionString))
                 {
+                    conn.Open();
                     using (var cmd = new SqlCommand("AddPrestasi", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
@@ -161,9 +162,10 @@ namespace ucp2
                         cmd.Parameters.AddWithValue("@tingkat_prestasi", txtTingkat.Text.Trim());
                         cmd.Parameters.AddWithValue("@tahun_prestasi", txtTahun.Text.Trim());
 
-                        conn.Open();
                         cmd.ExecuteNonQuery();
                     }
+                    conn.Close();
+
                 }
 
                 MessageBox.Show("Data prestasi berhasil ditambahkan!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -197,6 +199,8 @@ namespace ucp2
                         cmd.Parameters.AddWithValue("@id_prestasi", _selectedRelasiId);
                         cmd.ExecuteNonQuery();
                     }
+                    conn.Close();
+
                 }
                 _cache.Remove(CacheKey);
                 MessageBox.Show("Data berhasil dihapus!", "Sukses");
@@ -239,6 +243,8 @@ namespace ucp2
                         cmd.Parameters.AddWithValue("@tahun_prestasi", txtTahun.Text);
                         cmd.ExecuteNonQuery();
                     }
+                    conn.Close();
+
                 }
                 _cache.Remove(CacheKey);
                 MessageBox.Show("Data berhasil diperbarui", "Sukses");
