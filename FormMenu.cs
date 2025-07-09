@@ -12,6 +12,7 @@ namespace ucp2
         public FormMenu()
         {
             InitializeComponent();
+            this.Resize += new EventHandler(FormMenu_Resize);
         }
 
         private void btnAtlet_Click(object sender, EventArgs e)
@@ -92,9 +93,22 @@ namespace ucp2
             }
         }
 
+        private void CenterPanel()
+        {
+            // Kode ini sekarang akan berhasil karena panelMenu sudah ada
+            panelMenu.Left = (this.ClientSize.Width - panelMenu.Width) / 2;
+            panelMenu.Top = (this.ClientSize.Height - panelMenu.Height) / 2;
+        }
+
         private void FormMenu_Load(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Maximized;
+            CenterPanel();
+        }
 
+        private void FormMenu_Resize(object sender, EventArgs e)
+        {
+            CenterPanel();
         }
     }
 }

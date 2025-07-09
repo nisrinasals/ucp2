@@ -25,7 +25,6 @@ namespace ucp2
         {
             // Mengatur form menjadi fullscreen
             this.WindowState = FormWindowState.Maximized;
-            this.FormBorderStyle = FormBorderStyle.None;
             SetupReportViewer();
             this.reportViewer1.RefreshReport();
         }

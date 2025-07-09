@@ -36,15 +36,17 @@
             // 
             // rvEvent
             // 
-            this.rvEvent.Location = new System.Drawing.Point(12, 72);
+            this.rvEvent.BackColor = System.Drawing.Color.Bisque;
+            this.rvEvent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rvEvent.Location = new System.Drawing.Point(0, 0);
             this.rvEvent.Name = "rvEvent";
-            this.rvEvent.Size = new System.Drawing.Size(776, 336);
+            this.rvEvent.Size = new System.Drawing.Size(1445, 450);
             this.rvEvent.TabIndex = 0;
             // 
             // btnBack
             // 
             this.btnBack.Image = ((System.Drawing.Image)(resources.GetObject("btnBack.Image")));
-            this.btnBack.Location = new System.Drawing.Point(0, 0);
+            this.btnBack.Location = new System.Drawing.Point(1368, 45);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(65, 50);
             this.btnBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -57,7 +59,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Bisque;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1445, 450);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.rvEvent);
             this.Name = "reportEvent";

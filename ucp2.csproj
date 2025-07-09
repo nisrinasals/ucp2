@@ -244,11 +244,15 @@
     <EmbeddedResource Include="report.resx">
       <DependentUpon>report.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReportEvent.rdlc" />
+    <EmbeddedResource Include="ReportEvent.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="reportEvent.resx">
       <DependentUpon>reportEvent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReportKeuangan.rdlc" />
+    <EmbeddedResource Include="ReportKeuangan.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReviewForm.resx">
       <DependentUpon>ReviewForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -161,6 +161,7 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "DATA ATLET FAKULTAS TEKNIK UMY";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // btnTambah
             // 

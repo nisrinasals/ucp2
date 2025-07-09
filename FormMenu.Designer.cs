@@ -34,11 +34,13 @@
             this.btnEvent = new System.Windows.Forms.Button();
             this.labelMenu = new System.Windows.Forms.Label();
             this.btnDashboard = new System.Windows.Forms.Button();
+            this.panelMenu = new System.Windows.Forms.Panel();
+            this.panelMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAtlet
             // 
-            this.btnAtlet.Location = new System.Drawing.Point(188, 208);
+            this.btnAtlet.Location = new System.Drawing.Point(185, 200);
             this.btnAtlet.Name = "btnAtlet";
             this.btnAtlet.Size = new System.Drawing.Size(202, 49);
             this.btnAtlet.TabIndex = 0;
@@ -48,7 +50,7 @@
             // 
             // btnPrestasi
             // 
-            this.btnPrestasi.Location = new System.Drawing.Point(434, 208);
+            this.btnPrestasi.Location = new System.Drawing.Point(431, 200);
             this.btnPrestasi.Name = "btnPrestasi";
             this.btnPrestasi.Size = new System.Drawing.Size(202, 49);
             this.btnPrestasi.TabIndex = 1;
@@ -58,7 +60,7 @@
             // 
             // btnKeuangan
             // 
-            this.btnKeuangan.Location = new System.Drawing.Point(188, 299);
+            this.btnKeuangan.Location = new System.Drawing.Point(185, 291);
             this.btnKeuangan.Name = "btnKeuangan";
             this.btnKeuangan.Size = new System.Drawing.Size(202, 49);
             this.btnKeuangan.TabIndex = 2;
@@ -68,7 +70,7 @@
             // 
             // btnEvent
             // 
-            this.btnEvent.Location = new System.Drawing.Point(434, 299);
+            this.btnEvent.Location = new System.Drawing.Point(431, 291);
             this.btnEvent.Name = "btnEvent";
             this.btnEvent.Size = new System.Drawing.Size(202, 49);
             this.btnEvent.TabIndex = 3;
@@ -82,15 +84,16 @@
             this.labelMenu.BackColor = System.Drawing.Color.Transparent;
             this.labelMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 40.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMenu.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelMenu.Location = new System.Drawing.Point(165, 77);
+            this.labelMenu.Location = new System.Drawing.Point(162, 69);
             this.labelMenu.Name = "labelMenu";
             this.labelMenu.Size = new System.Drawing.Size(492, 76);
             this.labelMenu.TabIndex = 4;
             this.labelMenu.Text = "MENU UTAMA";
+            this.labelMenu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnDashboard
             // 
-            this.btnDashboard.Location = new System.Drawing.Point(309, 386);
+            this.btnDashboard.Location = new System.Drawing.Point(306, 378);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Size = new System.Drawing.Size(202, 49);
             this.btnDashboard.TabIndex = 5;
@@ -98,23 +101,32 @@
             this.btnDashboard.UseVisualStyleBackColor = true;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
+            // panelMenu
+            // 
+            this.panelMenu.Controls.Add(this.btnDashboard);
+            this.panelMenu.Controls.Add(this.labelMenu);
+            this.panelMenu.Controls.Add(this.btnEvent);
+            this.panelMenu.Controls.Add(this.btnKeuangan);
+            this.panelMenu.Controls.Add(this.btnPrestasi);
+            this.panelMenu.Controls.Add(this.btnAtlet);
+            this.panelMenu.Location = new System.Drawing.Point(3, 8);
+            this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Size = new System.Drawing.Size(809, 473);
+            this.panelMenu.TabIndex = 6;
+            // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Bisque;
             this.ClientSize = new System.Drawing.Size(814, 483);
-            this.Controls.Add(this.btnDashboard);
-            this.Controls.Add(this.labelMenu);
-            this.Controls.Add(this.btnEvent);
-            this.Controls.Add(this.btnKeuangan);
-            this.Controls.Add(this.btnPrestasi);
-            this.Controls.Add(this.btnAtlet);
+            this.Controls.Add(this.panelMenu);
             this.Name = "FormMenu";
             this.Text = "Menu";
             this.Load += new System.EventHandler(this.FormMenu_Load);
+            this.panelMenu.ResumeLayout(false);
+            this.panelMenu.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -126,6 +138,7 @@
         private System.Windows.Forms.Button btnEvent;
         private System.Windows.Forms.Label labelMenu;
         private System.Windows.Forms.Button btnDashboard;
+        private System.Windows.Forms.Panel panelMenu;
     }
 }
 

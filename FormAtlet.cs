@@ -32,7 +32,6 @@ namespace ucp2
         {
             // Mengatur form menjadi fullscreen
             this.WindowState = FormWindowState.Maximized;
-            this.FormBorderStyle = FormBorderStyle.None;
             this.dgvAtlet.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             EnsureIndexes();
             LoadData();
@@ -398,6 +397,11 @@ namespace ucp2
             {
                 MessageBox.Show("Error reading the Excel file: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

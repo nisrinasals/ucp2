@@ -108,7 +108,6 @@ namespace ucp2
         {
             // Mengatur form menjadi fullscreen
             this.WindowState = FormWindowState.Maximized;
-            this.FormBorderStyle = FormBorderStyle.None;
 
             dgvPreview.AutoResizeColumns();
         }
